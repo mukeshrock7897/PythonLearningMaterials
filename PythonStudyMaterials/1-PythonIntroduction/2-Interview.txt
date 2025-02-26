@@ -1,0 +1,96 @@
+================== Python Overview ==================
+1. Key features of Python? -> Easy, interpreted, OOP, dynamic, portable.
+2. Why is Python interpreted? -> Code runs directly without compilation.
+3. Difference from compiled languages? -> No explicit compilation step.
+4. What is interactive mode? -> Direct execution in Python shell.
+5. How does Python follow OOP? -> Supports classes, objects, inheritance.
+6. Why is Python a scripting language? -> Executes line by line like scripts.
+7. Python file extensions? -> .py, .pyc.
+
+================== History of Python ==================
+8. Who created Python? -> Guido van Rossum, 1990.
+9. Python 2 vs 3? -> Python 3 improved syntax, Unicode support.
+10. What is GPL in Python? -> Open-source licensing.
+
+================== Python Features ==================
+11. Why easy to learn? -> Simple syntax, readability.
+12. Why easy to read/maintain? -> Clean, indentation-based.
+13. Key standard libraries? -> os, sys, math, re, json, datetime.
+14. How is Python portable? -> Runs on multiple platforms.
+15. Database support? -> SQLite, MySQL, PostgreSQL, MongoDB.
+16. GUI libraries? -> Tkinter, PyQt, Kivy.
+
+================== Python Syntax ==================
+17. How does Python handle dynamic typing? -> No need to declare types.
+18. Python syntax rules? -> Indentation-based, no semicolons.
+19. Print "Hello World"? 
+print("Hello World")      Hello World
+20. Why no semicolons? -> Uses indentation instead.
+
+================== Python Identifiers ==================
+21. What are identifiers? -> Names for variables, functions, classes.
+22. Rules for naming? -> Start with letter/underscore, no special chars.
+23. Why no numbers first? -> Syntax rule violation.
+24. Why @name invalid? -> Special symbols not allowed.
+25. _var meaning? -> Private variable convention.
+26. __var meaning? -> Strongly private.
+27. __init__ meaning? -> Special method in classes.
+
+================== Reserved Keywords ==================
+28. List reserved keywords?
+import keyword
+print(keyword.kwlist)      Prints all reserved keywords
+29. Can keywords be used as variables? -> No.
+30. Can keywords be uppercase? -> No, all lowercase.
+
+================== Line and Indentation ==================
+31. How does Python handle indentation? -> Uses it for code blocks.
+32. What happens with incorrect indentation? -> IndentationError.
+33. Why no curly braces? -> Readability, simplicity.
+
+================== Multiple Statements in One Line ==================
+34. Multiple statements in one line?
+a, b, c = 10, 20, 30; print(a, b, c)      10 20 30
+35. Why not recommended? -> Reduces readability.
+
+================== Multiple Assignment ==================
+36. What is multiple assignment? -> Assigning same value to multiple variables.
+a = b = c = 10      a, b, c all are 10
+37. Example of tuple assignment?
+a, b, c = 5, 10, 15      Assigning multiple values
+38. Output of tuple assignment?
+print(a, b, c)      5 10 15
+
+================== Multiple Objects to Multiple Variables ==================
+39. Assign multiple values?
+name, age, location = "Alice", 25, "NY"
+print(name, age, location)      Alice 25 NY
+40. Example assignment with different data types?
+x, y, z = 3.14, True, "Python"
+print(x, y, z)      3.14 True Python
+
+================== Comments in Python ==================
+41. How to write comments? -> Using     symbol.
+42. Single vs multi-line comment? ->     for single, ''' ''' for multi-line.
+
+================== Printing Blank Lines ==================
+43. How to print a blank line?
+print()      Prints a blank line
+44. What if printing an empty string?
+print("")      Prints nothing
+
+================== Multiple Statement Grouping as Suites ==================
+45. What is a suite? -> Indented group of statements.
+46. How are suites defined? -> Using indentation after :
+47. Purpose of colon (:) in suites? -> Indicates block start.
+48. Example of function suite?
+def add():
+a, b = 10, 20
+return a + b
+print(add())      30
+
+================== Variables in Python ==================
+49. What is dynamic typing? -> No type declaration needed.
+50. How does memory allocation work? -> Uses references.
+51. How to declare a variable? -> Just assign a value.
+52. What if using == instead of =? -> Comparison instead of assignment.
