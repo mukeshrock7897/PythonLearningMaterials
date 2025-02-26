@@ -1,0 +1,453 @@
+								Anonymous Function
+
+================================================================================================================================================
+
+A function who declared without any name is known as Anonymous function 
+
+The main purpose of anonymous function is just for instant use
+
+
+								Lambda function
+
+================================================================================================================================================
+
+
+lambda function is one-line  function or anonymous function
+
+lambda function is defined by lambda keyword
+
+lambda function can have any number of arguments but only one expression
+
+Sometimes we can pass function as argument to another function , in such cases lambda function is best choice
+ 
+NOTE- lambda keyword does not use return keyword for returning the values,internally returns the expression value
+
+
+Syntax--
+--------
+
+lambda  arguments1 arguments2:expression
+
+
+Ex-
+
+s=lambda a,b:a+b
+
+s(10,20)		#30
+
+---------------------------------
+
+s=lambda a:a*a
+
+s(10)			#100
+
+---------------------------------
+
+s=lambda a,b:a if a>b else b
+
+s(10,20)		#20
+
+================================================================================================================================================
+
+
+	we can use lambda function with filter() , map() , reduce() because these functions except function  as arguments		
+
+
+
+
+
+									filter() function
+
+================================================================================================================================================
+
+we use filter() function to filter values from the given sequence based on some conditions
+
+Syntax-
+-------
+
+filter(function,sequence)
+
+
+where
+
+function arguments is responsible to perform conditional check
+sequence can be list or tuple or string
+
+
+
+Ex---
+
+Q-Program to filter only even numbers from the list by using filter() function
+
+Using Normal Function
+---------------------
+
+def Even(x):
+    if x%2==0:
+        return True
+    else:
+        return False
+
+l=[1,2,3,4,5,6,7,8]
+
+l1=list(filter(Even,l))
+
+print(l1)		#[2, 4, 6, 8]
+
+
+
+
+Using lambda function
+----------------------
+
+l=[1,2,3,4,5,6,7,8]
+
+l1=list(filter(lambda x:x%2==0,l))
+
+print(l1)		#[2, 4, 6, 8]
+
+
+
+
+
+
+								map() function
+
+================================================================================================================================================
+
+map() function apply same functionality each and every given element of a given sequence and return a modified list
+
+
+Syntax-
+-------
+
+map(function,sequence) 
+
+
+
+Ex-
+
+Q-Find out the square of each elements of given sequence using map() function
+
+
+Using Normal Function
+---------------------
+
+def square(x):
+    return x*x
+
+l=[1,2,3,4,5,6,7,8]
+
+l1=list(map(square,l))
+
+print(l1)		#[1, 4, 9, 16, 25, 36, 49, 64]
+
+
+Using lambda function
+----------------------
+
+l=[1,2,3,4,5,6,7,8]
+
+l1=list(map(lambda x:x*x,l))
+
+print(l1)		#[1, 4, 9, 16, 25, 36, 49, 64]
+
+
+
+
+								reduce() function
+
+================================================================================================================================================
+
+reduce() function reduce the sequnce of elements into a single element by operation
+
+reduce() function comes under the functools module
+
+Syntax-
+------
+
+reduce(function,sequnce)
+
+
+Ex-
+
+Q- Find out the sum of given list using the reduce() function
+
+
+import functools
+   
+l=[1,2,3,4,5,6,7,8]
+
+l1=functools.reduce(lambda x,y:x+y,l)
+
+print(l1)				#36
+
+
+================================================================================================================================================
+
+
+								Iterator
+
+================================================================================================================================================
+
+iterator is an object which implements the iterator protocol
+
+the iterator protocol consists two methods  
+
+1- iter()
+
+iter() method , who must return the iterator object 
+
+
+2-  next()
+
+next() method who returns the next element from a sequence 
+
+
+Ex--
+
+
+a=["Amresh","Indresh","Mukesh"]
+
+iterator=iter(a)
+
+print(next(iterator))		#Amresh
+
+print(next(iterator))		#Indresh
+
+print(next(iterator))		#Mukesh
+
+print(next(iterator))		#Error StopIterations
+
+
+NOTE- if no values will availble then it raise StopIteration Error
+
+================================================================================================================================================
+
+
+									Generator
+
+================================================================================================================================================
+
+
+generator is a function which is responsible to generate a sequence of values
+
+we can write generator function just like ordinary functions , but it uses yield keyword to return values
+
+
+
+Ex-
+
+
+def names():
+    yield "Amresh"
+    yield "Indresh"
+    yield "Mukesh"
+    
+
+iterator=names()
+
+print(next(iterator))			#Amresh
+
+print(next(iterator))			#Indresh
+
+print(next(iterator))			#Mukesh
+
+print(next(iterator))			#Error StopIteration
+
+
+
+NOTE-finally  when the function terminates , StopIteration is raised automatically on further calls
+
+
+================================================================================================================================================
+
+
+
+									Decorator
+
+================================================================================================================================================
+
+
+Decorator is a function which take a function as arguments and extend its functionality and returns modified function with extended functionality
+
+the main objective of decorator functions is we can extend the functionality of existing functions without modifies that function
+
+
+Ex-
+
+
+def wish(name):
+    print("Hello ",name,"Good Morning")
+
+wish("Mukesh")				#Hello  Mukesh Good Morning
+
+wish("Amresh")				#Hello  Amresh Good Morning
+
+
+
+this function can always print same output for any name
+
+But we want to modify this function to provide different message if name is Amresh, without touching wish() function then we have to use decorator
+
+
+
+Ex--
+
+
+def decor(func):
+    def inner(name):
+        if name=="Amresh":
+            print("Hello Big Brother")
+        else:
+            func(name)
+    return inner
+
+
+@decor
+def wish(name):
+    print("Hello ",name,"Good Morning")
+
+wish("Mukesh")
+wish("Amresh")
+
+================================================================================================================================================
+
+								Decorator Chaining
+
+
+================================================================================================================================================
+
+
+we can define multiple decorator for the same function ,this is known as Decorator Chaining
+
+
+Ex-
+
+
+def decor(fun):
+    def inner(name):
+        if name=='Amresh':
+            print("Hello Big Brother")
+        else:
+            fun(name)
+    return inner
+
+def decor2(fun2):
+    def inner(name):
+        if name=="Indresh":
+            print("Hello Small Brother")
+        else:
+            fun2(name)
+    return inner
+
+@decor
+@decor2
+def wish(name):
+    print("Good Morning",name)
+
+wish("Mukesh")
+wish("Amresh")
+wish("Indresh")
+
+
+#OUTPUT
+
+Good Morning Mukesh
+Hello Big Brother
+Hello Small Brother
+
+
+
+
+
+
+================================================================================================================================================
+
+
+								Function Aliasing
+
+================================================================================================================================================
+
+for the existing function we can give another name , which is known as function aliasing
+
+
+Ex-
+
+def wish(name):
+    print("Good Morning ",name)
+
+greeting=wish
+
+greeting("Mukesh")		#Good Morning Mukesh
+
+wish("Amresh")			#Good Morning Amresh
+
+
+print(id(wish))			#140456272407272
+
+print(id(greeting))		#140456272407272
+
+
+In above example we can call by function and function alising both , where both id will be same
+
+
+NOTE--if we delete one name still we can access that function by function alising
+
+
+
+def wish(name):
+    print("Good Morning ",name)
+
+greeting=wish
+
+Before deleting
+
+greeting("Mukesh")			#Good Morning  Mukesh
+
+wish("Amresh")				#Good Morning  Amresh
+
+
+After deleting
+
+del wish
+
+greeting("Mukesh")			#Good Morning  Mukesh
+
+wish("Amresh")				#NameError 'wish' is not defined
+
+
+
+
+================================================================================================================================================
+
+
+								Nested Function
+
+================================================================================================================================================
+
+we declare function inside another function , this known as Nested function
+
+
+Ex-
+
+def outer():
+
+    print("This is Outer Function")
+
+    def inner():
+
+        print("This is inner function")
+
+    print("Outer Function calling inner function")
+
+    inner()
+
+outer()
+
+
+#OUTPUT
+
+This is Outer Function
+Outer Function calling inner function
+This is inner function

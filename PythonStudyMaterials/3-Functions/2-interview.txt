@@ -1,0 +1,87 @@
+### **Interview Questions and Answers on Python Functions**
+
+#### **1. Function Basics**
+**Q:** What is a function in Python?  
+**A:** A function is a block of reusable code that performs a specific task, defined using the `def` keyword.  
+
+**Q:** Why are functions important in programming?  
+**A:** Functions improve code reusability, reduce redundancy, and make debugging easier.  
+
+**Q:** How do you define a function in Python?  
+**A:** Using the `def` keyword followed by the function name and parentheses.  
+  
+def add(a, b):  
+    return a + b  
+     
+
+#### **2. Parameters vs Arguments**  
+**Q:** What is the difference between a parameter and an argument?  
+**A:** A parameter is a variable in the function definition, while an argument is the actual value passed during function execution.  
+
+#### **3. Types of Arguments**  
+
+**Q:** What are required (positional) arguments?  
+**A:** Arguments that must be provided in the exact order as defined in the function.  
+
+**Q:** What happens if a required argument is missing?  
+**A:** A `TypeError` occurs due to a missing required argument.  
+
+**Q:** What are default arguments?  
+**A:** Parameters with predefined values used if no argument is passed.  
+  
+def greet(name="User"):  
+    return "Hello, " + name  
+     
+
+**Q:** What are keyword arguments?  
+**A:** Arguments passed using parameter names, allowing flexible ordering.  
+  
+def add(a=10, b=20):  
+    return a + b  
+     
+
+**Q:** What are variable-length arguments?  
+**A:** Arguments that allow passing multiple values dynamically using `*args` (tuple) or `**kwargs` (dictionary).  
+
+#### **4. Return Statement**  
+
+**Q:** What does the `return` statement do?  
+**A:** It exits a function and returns a value.  
+
+**Q:** Can a function return multiple values?  
+**A:** Yes, by returning a tuple.  
+  
+def values():  
+    return 10, 20, 30  
+     
+
+#### **5. Global vs Local Variables**  
+
+**Q:** What is a global variable?  
+**A:** A variable defined outside a function, accessible anywhere in the script.  
+
+**Q:** What is a local variable?  
+**A:** A variable declared inside a function, accessible only within that function.  
+
+**Q:** How do you modify a global variable inside a function?  
+**A:** Using the `global` keyword.  
+  
+global x  
+x = 10  
+     
+
+#### **6. Symbol Table**  
+
+**Q:** What is a symbol table in Python?  
+**A:** A structure that stores variable, function, and class details in a program.  
+
+**Q:** What are the types of symbol tables?  
+**A:** Local symbol table (`locals()`) and global symbol table (`globals()`).  
+
+**Q:** How can you access the local symbol table?  
+**A:** Using `locals()` inside a function.  
+
+**Q:** How can you access the global symbol table?  
+**A:** Using `globals()`.  
+
+This covers short, precise interview questions for each topic. Let me know if you need more! 🚀

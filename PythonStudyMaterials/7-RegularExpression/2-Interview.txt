@@ -1,0 +1,195 @@
+Here are questions and answers for each topic related to **Regular Expressions in Python**:  
+
+---
+
+### **Introduction to Regular Expressions**  
+#### **Q1:** What is a regular expression?  
+**A:** A regular expression (regex) is a sequence of characters that defines a search pattern for text matching and manipulation.  
+
+#### **Q2:** What are some common use cases of regular expressions?  
+**A:** Common use cases include:  
+- Email validation  
+- Phone number validation  
+- Pattern searching in text  
+- Data extraction  
+- Replacing text  
+
+#### **Q3:** What module in Python is used for regular expressions?  
+**A:** The `re` module is used for handling regular expressions in Python.  
+
+---
+
+### **Basic Functions in Regular Expressions**  
+#### **Q4:** What does `re.compile()` do?  
+**A:** `re.compile(pattern)` compiles a regex pattern into a regex object, which can be reused for multiple operations.  
+
+#### **Q5:** What is the purpose of `re.finditer()`?  
+**A:** It returns an iterator yielding match objects for all matches of a pattern in a string.  
+
+Example:  
+   
+import re
+pattern = re.compile("ab")
+matcher = pattern.finditer("abaababa")
+for match in matcher:
+    print(match.start(), "....", match.end(), '....', match.group())
+   
+
+#### **Q6:** What is the difference between `re.match()` and `re.search()`?  
+**A:**  
+- `re.match()` checks for a match only at the **beginning** of the string.  
+- `re.search()` checks for a match **anywhere** in the string.  
+
+Example:  
+   
+import re
+print(re.match("ab", "abc").group())  # Output: ab
+print(re.search("ab", "123abc").group())  # Output: ab
+   
+
+#### **Q7:** What does `re.findall()` do?  
+**A:** It returns a **list** of all occurrences of the pattern in a string.  
+
+Example:  
+   
+import re
+print(re.findall("a", "ababa"))  # Output: ['a', 'a', 'a']
+   
+
+#### **Q8:** What is `re.sub()` used for?  
+**A:** It replaces occurrences of a pattern with a given string.  
+
+Example:  
+   
+import re
+print(re.sub("[a-z]", "#", "a4b5c9"))  # Output: "#4#5#9"
+   
+
+#### **Q9:** How does `re.split()` work?  
+**A:** It splits a string into a list based on a regex pattern.  
+
+Example:  
+   
+import re
+print(re.split(",", "apple,banana,grapes"))  # Output: ['apple', 'banana', 'grapes']
+   
+
+---
+
+### **Character Classes in Regular Expressions**  
+#### **Q10:** What does `[abc]` match?  
+**A:** It matches any one of the characters `a`, `b`, or `c`.  
+
+Example:  
+   
+import re
+matcher = re.finditer("[abc]", "a7b@k9z")
+for match in matcher:
+    print(match.start(), '....', match.group())  # Output: 0 .... a , 2 .... b
+   
+
+#### **Q11:** What does `[^abc]` match?  
+**A:** It matches any character **except** `a`, `b`, or `c`.  
+
+Example:  
+   
+import re
+matcher = re.finditer("[^abc]", "a7b@k9z")
+for match in matcher:
+    print(match.start(), '....', match.group())  # Output: 1 .... 7 , 3 .... @ , etc.
+   
+
+#### **Q12:** What does `[a-z]` match?  
+**A:** It matches any **lowercase** letter from `a` to `z`.  
+
+#### **Q13:** What does `[A-Z]` match?  
+**A:** It matches any **uppercase** letter from `A` to `Z`.  
+
+#### **Q14:** What does `[0-9]` match?  
+**A:** It matches any **digit** from `0` to `9`.  
+
+#### **Q15:** What does `[^a-zA-Z0-9]` match?  
+**A:** It matches any **special character** (not an alphanumeric character).  
+
+---
+
+### **Special Characters in Regular Expressions**  
+#### **Q16:** What does `^` do in regex?  
+**A:** It asserts that the match must occur at the **start** of the string.  
+
+Example:  
+   
+import re
+print(re.search("^Hello", "Hello World"))  # Output: <re.Match object; span=(0, 5), match='Hello'>
+   
+
+#### **Q17:** What does `$` do in regex?  
+**A:** It asserts that the match must occur at the **end** of the string.  
+
+Example:  
+   
+import re
+print(re.search("World$", "Hello World"))  # Output: <re.Match object; span=(6, 11), match='World'>
+   
+
+#### **Q18:** What is the difference between `\w` and `\W`?  
+**A:**  
+- `\w` matches any word character (`a-z`, `A-Z`, `0-9`, `_`).  
+- `\W` matches any non-word character (`@`, `#`, `!`, etc.).  
+
+Example:  
+   
+import re
+print(re.findall("\w", "Hello@123"))  # Output: ['H', 'e', 'l', 'l', 'o', '1', '2', '3']
+print(re.findall("\W", "Hello@123"))  # Output: ['@']
+   
+
+#### **Q19:** What is the difference between `\d` and `\D`?  
+**A:**  
+- `\d` matches any **digit** (`0-9`).  
+- `\D` matches any **non-digit** character.  
+
+#### **Q20:** What is the difference between `\s` and `\S`?  
+**A:**  
+- `\s` matches **whitespace** (`\t`, `\n`, `\r`, etc.).  
+- `\S` matches **non-whitespace** characters.  
+
+---
+
+### **Quantifiers in Regular Expressions**  
+#### **Q21:** What does `a+` match?  
+**A:** It matches **one or more** occurrences of `a`.  
+
+Example:  
+   
+import re
+matcher = re.finditer("a+", "abaabaaab")
+for match in matcher:
+    print(match.start(), '....', match.group())  # Output: 0 .... a , 2 .... aa , 5 .... aaa
+   
+
+#### **Q22:** What does `a*` match?  
+**A:** It matches **zero or more** occurrences of `a`.  
+
+#### **Q23:** What does `a?` match?  
+**A:** It matches **zero or one** occurrence of `a`.  
+
+#### **Q24:** What does `a{3}` match?  
+**A:** It matches exactly **3** occurrences of `a`.  
+
+---
+
+### **Additional Functions in Regular Expressions**  
+#### **Q25:** What is the difference between `re.sub()` and `re.subn()`?  
+**A:**  
+- `re.sub()` replaces occurrences of a pattern.  
+- `re.subn()` does the same but also returns the **count** of replacements.  
+
+Example:  
+   
+import re
+print(re.sub("[a-z]", "#", "a4b5c9"))  # Output: "#4#5#9"
+print(re.subn("[a-z]", "#", "a4b5c9"))  # Output: ('#4#5#9', 3)
+   
+
+---

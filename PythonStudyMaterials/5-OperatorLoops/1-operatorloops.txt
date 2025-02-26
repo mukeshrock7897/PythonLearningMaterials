@@ -1,0 +1,795 @@
+================================================================================================================================================
+								Operators
+================================================================================================================================================
+
+operator performs the operation between two operands 
+
+There are many type of opeartor given in python
+
+1--Airthmetic Operator
+
+2--Relational Operator
+
+3--Logical Opeartor
+
+4--Indetify Operator
+
+5--Bitwise Operator
+
+6--Shorthand Assignment Operator
+
+
+
+================================================================================================================================================
+
+1--Airthmetic Operator
+================================================================================================================================================
+
+
+this operator performs only airthmetic related operations
+
+
+0--Addition		+
+
+0--Substraction		-
+
+0--Multiplication	*
+
+0--Division		/
+
+0--Moduls		%
+
+0--Floor Division	//
+
+0--Square		**
+
+
+Ex--
+
+10+2	=12
+
+10-2	=8
+
+10*2	=20
+
+10/2	=5
+
+10%2	=0
+
+10.5//2	=5
+
+2**2	=4
+
+
+
+================================================================================================================================================
+
+2--Relational Operator
+================================================================================================================================================
+
+
+relational operator will find relation in between two operands and return True or False
+
+0--greater than 		>
+
+0--greater than equal to	>=
+
+0--less than			<
+
+0--less than equal to		<=
+
+0--not equal to			!=
+
+0--equal to 			==
+
+
+
+Ex--
+
+
+10>2			#True
+
+10>=2			#True
+
+2<10			#True
+
+2<=10			#True
+
+2!=10			#True
+
+2==2			#True
+
+
+
+================================================================================================================================================
+
+3--Logical Opeartor
+================================================================================================================================================
+
+and 		Return True if both operands True x and y
+
+or		Return True either one opearnds True x or y
+
+not		Return True if operands is False not x(complement)
+
+
+
+Ex--
+
+
+True and True			#True
+
+True and False			#False
+
+False and True 			#False
+
+False and False			#False
+
+
+
+
+
+Ex--
+
+True or True 			#True 
+
+True or False			#True 
+
+False or True 			#True
+
+False or False			#False
+
+
+
+
+Ex--
+
+not True		#False
+
+not False		#True
+
+
+
+Real Example--
+
+
+>>> 10 and 10
+10
+ 
+>>> 20 and 10
+10
+
+>>> 10 or 10
+10
+
+>>> 20 or 10
+20
+
+>>> 0 or 0
+0
+
+>>> "A" or "A"
+'A'
+
+>>> "A" and "A"
+'A'
+
+>>> "A" or "B"
+'A'
+
+>>> "A" and "B"
+'B'
+
+>>> not 10
+False
+
+>>> not 0
+True
+
+>>> not "A"
+False
+
+>>> not "mukesh"
+False
+
+
+
+================================================================================================================================================
+
+4--Identify Opeartor
+================================================================================================================================================
+
+is 		True if opearnds identical
+
+is not		True if operands not identical 
+
+
+Ex--
+
+a=10	b=10
+
+a is b			#True
+
+
+a=10    b=20
+
+a is not b		#True
+
+
+
+================================================================================================================================================
+
+5--Bitwise Operator
+================================================================================================================================================
+
+bitwise operator will perform opeartion only on binary(binary digits)
+
+0 and 1 binary digits
+
+
+
+0--Bitwise And 		&
+
+0--Bitwise or		|
+
+0--Bitwise or		^
+
+0--left shift		<<
+
+0--right shift		>>
+
+
+Ex--
+
+
+10&5   #0
+
+
+10		1010		
+
+5		0101
+	----------------------
+		0000
+	----------------------
+
+
+
+10|5	#15
+
+
+
+10		1010		
+
+5		0101
+	----------------------
+		1111
+	----------------------
+
+
+
+10^5	#15
+
+
+
+10		1010		
+
+5		0101
+	----------------------
+		1111
+	----------------------
+
+
+
+
+10<<2	#40
+
+10*2=20
+20*2=40
+
+
+10>>2	#2
+
+10/2=5
+5/2=2
+
+
+
+================================================================================================================================================
+
+6--Shorthand assignment operator
+================================================================================================================================================
+
+
++=		a+=1		a=a+1
+
+-=		a-=1		a=a-1
+
+*=		a*=1		a=a*1
+
+/=		a/=1		a=a/1
+
+//=		a//=1		a=a//1
+
+%=		a%=1		a=a%1
+
+<<=		a<<=1		a=a<<1
+
+>>=		a>>=1		a=a>>1
+
+
+
+a=b=5
+
+a+b	#10
+
+a+b+=b	#Error
+
+
+
+
+
+================================================================================================================================================
+
+								Loops
+================================================================================================================================================
+
+
+if same things are repeated again and again or runs continously that process known as loop
+
+there are few loops is python
+
+1--while loop
+
+2--for loop
+
+3--nested loop
+
+
+
+================================================================================================================================================
+
+1--while loop
+================================================================================================================================================
+
+this loop execute set of statement untill condition not get false
+
+
+Synatx-
+
+while  condition:
+	----------
+	----------
+	----------
+
+
+Ex--
+
+>>> a=1
+>>> while(a<6):
+	print(a)
+	a=a+1
+
+	
+1
+2
+3
+4
+5
+
+
+
+
+
+
+================================================================================================================================================
+
+2--for loop
+================================================================================================================================================
+
+
+with for loop we can execute a set of statements 
+
+for loop is used for iterating over a sequence (ie list,tuple,set,dictionary,string)
+
+
+Ex--
+
+
+>>> a=10
+>>> for i in range(a):
+	print(i)
+
+	
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+
+
+================================================================================================================================================
+
+3--nested loop
+================================================================================================================================================
+
+in nested loop , inside one loop defined another loop 
+
+
+
+
+Ex--
+
+>>> for i in range(5):
+	print("This is Outside loop Element::",i)
+	for j in range(5,11):
+		print("This is Inside loop Element::",j)
+
+		
+This is Outside loop Element:: 0
+This is Inside loop Element:: 5
+This is Inside loop Element:: 6
+This is Inside loop Element:: 7
+This is Inside loop Element:: 8
+This is Inside loop Element:: 9
+This is Inside loop Element:: 10
+This is Outside loop Element:: 1
+This is Inside loop Element:: 5
+This is Inside loop Element:: 6
+This is Inside loop Element:: 7
+This is Inside loop Element:: 8
+This is Inside loop Element:: 9
+This is Inside loop Element:: 10
+This is Outside loop Element:: 2
+This is Inside loop Element:: 5
+This is Inside loop Element:: 6
+This is Inside loop Element:: 7
+This is Inside loop Element:: 8
+This is Inside loop Element:: 9
+This is Inside loop Element:: 10
+This is Outside loop Element:: 3
+This is Inside loop Element:: 5
+This is Inside loop Element:: 6
+This is Inside loop Element:: 7
+This is Inside loop Element:: 8
+This is Inside loop Element:: 9
+This is Inside loop Element:: 10
+This is Outside loop Element:: 4
+This is Inside loop Element:: 5
+This is Inside loop Element:: 6
+This is Inside loop Element:: 7
+This is Inside loop Element:: 8
+This is Inside loop Element:: 9
+This is Inside loop Element:: 10
+
+
+
+
+
+
+Ex--2
+
+>>> a=1
+>>> while(a<5):
+	print("\nThis is First While Statement Elements::",a)
+	a=a+1
+	b=2
+	while(b<10):
+		print("\nThis is Second While Statement Elements::",b)
+		b=b+1
+
+		
+
+This is First While Statement Elements:: 1
+
+This is Second While Statement Elements:: 2
+
+This is Second While Statement Elements:: 3
+
+This is Second While Statement Elements:: 4
+
+This is Second While Statement Elements:: 5
+
+This is Second While Statement Elements:: 6
+
+This is Second While Statement Elements:: 7
+
+This is Second While Statement Elements:: 8
+
+This is Second While Statement Elements:: 9
+
+This is First While Statement Elements:: 2
+
+This is Second While Statement Elements:: 2
+
+This is Second While Statement Elements:: 3
+
+This is Second While Statement Elements:: 4
+
+This is Second While Statement Elements:: 5
+
+This is Second While Statement Elements:: 6
+
+This is Second While Statement Elements:: 7
+
+This is Second While Statement Elements:: 8
+
+This is Second While Statement Elements:: 9
+
+This is First While Statement Elements:: 3
+
+This is Second While Statement Elements:: 2
+
+This is Second While Statement Elements:: 3
+
+This is Second While Statement Elements:: 4
+
+This is Second While Statement Elements:: 5
+
+This is Second While Statement Elements:: 6
+
+This is Second While Statement Elements:: 7
+
+This is Second While Statement Elements:: 8
+
+This is Second While Statement Elements:: 9
+
+This is First While Statement Elements:: 4
+
+This is Second While Statement Elements:: 2
+
+This is Second While Statement Elements:: 3
+
+This is Second While Statement Elements:: 4
+
+This is Second While Statement Elements:: 5
+
+This is Second While Statement Elements:: 6
+
+This is Second While Statement Elements:: 7
+
+This is Second While Statement Elements:: 8
+
+This is Second While Statement Elements:: 9
+
+
+
+================================================================================================================================================
+								
+								Break and Continue
+================================================================================================================================================
+
+
+
+break statment
+--------------
+--------------
+
+break statement throw from loop body to outside ,if condition matched of loop body
+
+this statement is done by break keyword
+
+Ex-
+
+
+>>> i=1
+>>> while(i<5):
+	if i==3:
+		break
+	else:
+		print(i)
+		i=i+1
+
+		
+1
+2
+
+
+
+
+
+continue statement
+-------------------
+-------------------
+
+
+with continue statement we continue the iteration of loop body if condition matched properly
+
+this statement is done by continue keyword
+
+
+Ex--
+
+
+>>> i=1
+>>> while(i<5):
+	i=i+1
+	if i==3:
+		continue
+	print(i)
+
+	
+2
+4
+5
+
+
+
+================================================================================================================================================
+
+							range() function
+================================================================================================================================================
+
+
+start with 0 and increment 1 by 1 and end with specified number(position)
+
+this is use for iteration purpose only
+
+range(start,stop,step)
+
+ex-
+
+
+>>> for x in range(5):
+	print(x)
+
+	
+0
+1
+2
+3
+4
+>>> for x in range(0,5):
+	print(x)
+
+	
+0
+1
+2
+3
+4
+
+
+
+>>> for x in range(0,5,2):
+	print(x)
+
+	
+0
+2
+4
+
+
+
+
+================================================================================================================================================
+
+								Decision Making
+================================================================================================================================================
+
+
+
+decision making is anticipation of conditions occuring while execution of the program and specifying actions taken according to the conditions
+
+in python there are few decision making availble
+
+1--if statement
+
+2--nested if statement
+
+3--if-else statement
+
+4--if elif ladder
+
+
+
+================================================================================================================================================
+
+								1--if statement
+================================================================================================================================================= 
+
+
+if statement is used to decide whether a certain statement or block of statement will be executed or not
+
+ie. if a certain condition is True then a block of statement is executed otherwise not
+
+
+
+Ex--
+
+
+i=10
+if i>15:
+    print(i,"is greater than 15")
+print(i,"is less than 15")
+
+
+#10 is less than 15
+
+
+
+
+================================================================================================================================================
+
+								2--nested if
+================================================================================================================================================
+
+we define if inside the if block
+
+Ex--
+
+i=10
+if i==10:
+    print("Wooo This is Equal to 10")
+    if i<20:
+        print("Very Nice this condition also True")
+else:
+    print("Sorry Condition False")
+
+
+#
+Wooo This is Equal to 10
+Very Nice this condition also True
+
+
+
+
+================================================================================================================================================
+
+								3--if else statement
+================================================================================================================================================
+
+it check first if block if this is True then execute this body other goto else block for execution
+
+Ex--
+
+
+a=10
+b=20
+
+if b>a:
+    print(b,"is Greater Number than 10")
+else:
+    print(b,"is Less Number than 10")
+
+
+
+#20 is Less Number than 10
+
+
+
+================================================================================================================================================
+
+								4--if elif ladder
+================================================================================================================================================
+
+
+if we want to check multiple conditions then we should go through if-elif ladder
+
+
+Ex--
+
+
+a=10
+b=20
+c=30
+
+if a>b and a>c:
+    print(a,"is Greater Number Among Them")
+    
+elif b>a and b>c:    
+    print(b,"is Greater Number Among Them")
+
+elif c>a and c>b:
+    print(c,"is Greater Number Among Them")
+
+else:
+    print("All Values Are equals")
+
+    
+#30 is Greater Number Among Them

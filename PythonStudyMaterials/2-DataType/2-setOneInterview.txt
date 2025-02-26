@@ -1,0 +1,177 @@
+1. Number Data Type Questions
+
+**Q1: Why are Python numbers immutable?**  
+**A:** When you "change" a numeric variable, Python creates a new object with the new value and reassigns the reference. This prevents accidental data corruption and enables efficient memory management for small integers (-5 to 256) that are cached.
+
+**Q2: Explain the difference between `math.floor()` and `int()` conversion**  
+**A:** 
+- `math.floor(-3.7)` returns -4 (next lower integer)
+- `int(-3.7)` returns -3 (truncates decimal part)
+- `math.floor()` always rounds down, while `int()` truncates towards zero
+
+**Q3: How does Python handle complex numbers?**  
+**A:** Represented as `a + bj` where:
+- `a` is real part
+- `b` is imaginary part
+- Accessed using `.real` and `.imag` attributes
+
+c = 3+4j
+print(c.real)      3.0
+print(c.imag)      4.0
+
+
+
+
+2. String Data Type Questions
+
+**Q4: Why are strings called immutable?**  
+**A:** Any string operation creates a new object:
+
+s = "hello"
+s.upper()      Creates new "HELLO" string
+print(s)       Original remains "hello"
+
+
+**Q5: Explain the difference between `split()` and `partition()`**  
+**A:** 
+- `split()`: Divides string at each occurrence of separator
+
+"a,b,c".split(",") → ['a', 'b', 'c']
+
+- `partition()`: Divides at first occurrence only
+
+"a,b,c".partition(",") → ('a', ',', 'b,c')
+
+
+**Q6: How to reverse a string in Python?**  
+**A:** Three methods:
+
+s = "hello"
+print(s[::-1])                Slicing
+print(''.join(reversed(s)))      reversed()
+print(''.join([s[i] for i in range(len(s)-1,-1,-1)]))      Loop
+
+
+
+
+3. List Data Type Questions
+
+**Q7: Explain shallow vs deep copy in lists**  
+**A:** 
+- Shallow copy (`list.copy()`): Copies references to nested objects
+- Deep copy (`copy.deepcopy()`): Creates completely independent copies
+
+import copy
+lst = [1, [2, 3]]
+shallow = lst.copy()
+deep = copy.deepcopy(lst)
+
+
+**Q8: What's the time complexity of list operations?**  
+**A:** 
+- Append: O(1)
+- Insert: O(n)
+- Search: O(n)
+- Slice: O(k) (k = slice size)
+- Pop last: O(1), Pop intermediate: O(n)
+
+**Q9: How to flatten a nested list?**  
+**A:** Using list comprehension:
+
+nested = [[1,2], [3,4]]
+flattened = [num for sublist in nested for num in sublist]
+[1, 2, 3, 4]
+
+
+
+
+4. Tuple Data Type Questions
+
+**Q10: When would you use tuples over lists?**  
+**A:** Use tuples for:
+- Data integrity (immutable)
+- Dictionary keys (hashable)
+- Return multiple values from functions
+- Fixed collections (coordinates, RGB colors)
+
+**Q11: How to create a tuple with one element?**  
+**A:** Use trailing comma:
+
+t = (5,)      Correct single-element tuple
+t = (5)       Incorrect (considered integer)
+
+
+**Q12: Why are tuples faster than lists?**  
+**A:** Tuples have:
+- Fixed size (memory allocated once)
+- No over-allocation like lists
+- Optimized for quick access
+
+
+
+5. Dictionary Data Type Questions
+
+**Q13: Explain dictionary comprehension**  
+**A:** Compact way to create dictionaries:
+
+squares = {x: x*x for x in range(5)}
+{0:0, 1:1, 2:4, 3:9, 4:16}
+
+
+**Q14: How to handle missing keys?**  
+**A:** Three methods:
+
+d = {'a':1}
+print(d.get('b', 0))       0 (default)
+print(d.setdefault('b', 0))      Sets and returns 0
+from collections import defaultdict
+dd = defaultdict(int)
+
+
+**Q15: Why can't lists be dictionary keys?**  
+**A:** Lists are mutable and not hashable. Only immutable types (numbers, strings, tuples) can be keys.
+
+
+
+6. Set Data Type Questions
+
+**Q16: How to remove duplicates from a list?**  
+**A:** Convert to set and back:
+
+lst = [1,2,2,3]
+unique = list(set(lst))      [1,2,3] (order not preserved)
+
+
+**Q17: Explain set operations**  
+**A:** 
+- Union: `|` or `union()`
+- Intersection: `&` or `intersection()`
+- Difference: `-` or `difference()`
+- Symmetric Difference: `^` or `symmetric_difference()`
+
+**Q18: What's the difference between `remove()` and `discard()`?**  
+**A:** 
+- `remove()` raises KeyError if element missing
+- `discard()` silently ignores missing elements
+
+
+
+Bonus: Memory Management Questions
+
+**Q19: What's the difference between `==` and `is`?**  
+**A:** 
+- `==` checks value equality
+- `is` checks object identity (same memory location)
+
+a = [1,2]
+b = [1,2]
+a == b      True
+a is b      False
+
+
+**Q20: Explain Python's GIL (Global Interpreter Lock)**  
+**A:** 
+- Mutex protecting Python object access
+- Prevents multiple native threads from executing Python bytecode
+- Impacts CPU-bound multi-threading
+- Workarounds: Multiprocessing, async I/O, C extensions

@@ -1,0 +1,162 @@
+### **Basic Questions**  
+
+#### 1. **What is a file in Python?**  
+**Answer:**  
+A file is a document that contains information or data, stored permanently, allowing retrieval in the future.
+
+#### 2. **What are the different types of files in Python?**  
+**Answer:**  
+Files in Python are of two types:  
+- **Text files**: Store character data (.txt files).  
+- **Binary files**: Store images, videos, audio, etc.  
+
+#### 3. **How do you open a file in Python?**  
+**Answer:**  
+Using the  open()  function:  
+
+f = open("example.txt", "r")
+
+
+#### 4. **What are the different file modes in Python?**  
+**Answer:**  
+- **"r"**: Read mode (default).  
+- **"w"**: Write mode (overwrites existing content).  
+- **"a"**: Append mode (adds new data without deleting existing data).  
+- **"r+"**: Read & write without overwriting data.  
+- **"w+"**: Read & write, but overwrites data.  
+- **"a+"**: Append & read.  
+- **Binary modes**:  "rb", "wb", "ab", "rb+", "wb+", "ab+" .  
+
+#### 5. **What happens if you open a non-existing file in read mode?**  
+**Answer:**  
+Python raises a  FileNotFoundError .
+
+---
+
+### **Intermediate Questions**  
+
+#### 6. **What is the difference between  write()  and  writelines() ?**  
+**Answer:**  
+-  write(str) : Writes a single string to a file.  
+-  writelines(list_of_strings) : Writes multiple lines from a list.  
+
+Example:  
+
+file = open("abc.txt", "w")
+file.write("Hello, World!\n")
+file.writelines(["Line 1\n", "Line 2\n"])
+file.close()
+
+
+#### 7. **How can you read a file in Python?**  
+**Answer:**  
+-  read() : Reads the entire file.  
+-  read(n) : Reads  n  characters.  
+-  readline() : Reads one line.  
+-  readlines() : Reads all lines into a list.  
+
+Example:  
+
+file = open("abc.txt", "r")
+print(file.read(5))  # Reads first 5 characters
+print(file.readline())  # Reads one line
+print(file.readlines())  # Reads all lines as a list
+file.close()
+
+
+#### 8. **What is the purpose of the  with  statement in file handling?**  
+**Answer:**  
+The  with  statement automatically closes the file after execution.  
+Example:  
+
+with open("example.txt", "w") as f:
+f.write("Using with statement")
+# No need to call f.close()
+
+
+#### 9. **How can you check if a file exists in Python?**  
+**Answer:**  
+Using  os.path.isfile() :  
+
+import os
+print(os.path.isfile("example.txt"))  # True if file exists
+
+
+#### 10. **What is the difference between  tell()  and  seek() ?**  
+**Answer:**  
+-  tell() : Returns the current file pointer position.  
+-  seek(offset, from_where) : Moves the file pointer.  
+-  from_where = 0  (default): Beginning of file.  
+-  from_where = 1 : Current position.  
+-  from_where = 2 : End of file.  
+
+Example:  
+
+file = open("abc.txt", "r")
+print(file.tell())  # 0 (start)
+file.read(5)
+print(file.tell())  # 5 (after reading 5 characters)
+file.seek(0)  # Move to the beginning
+print(file.tell())  # 0
+file.close()
+
+
+---
+
+### **Advanced Questions**  
+
+#### 11. **How do you count the number of lines, words, and characters in a file?**  
+**Answer:**  
+
+import os
+
+filename = "abc.txt"
+if os.path.isfile(filename):
+with open(filename, "r") as f:
+    lines = f.readlines()
+
+line_count = len(lines)
+word_count = sum(len(line.split()) for line in lines)
+char_count = sum(len(line) for line in lines)
+
+print("Lines:", line_count)
+print("Words:", word_count)
+print("Characters:", char_count)
+
+
+#### 12. **How do you handle exceptions while working with files?**  
+**Answer:**  
+Using  try-except :  
+
+try:
+f = open("nonexistent.txt", "r")
+except FileNotFoundError:
+print("File not found!")
+finally:
+if 'f' in locals():
+    f.close()
+
+
+#### 13. **What is the difference between  close()  and  with  statement?**  
+**Answer:**  
+-  close() : Requires manual file closure.  
+-  with : Automatically closes the file.  
+
+#### 14. **How can you open a file in append mode without overwriting existing content?**  
+**Answer:**  
+Using  "a"  mode:  
+
+with open("abc.txt", "a") as f:
+f.write("\nAppending data")
+
+
+#### 15. **How do you read a binary file in Python?**  
+**Answer:**  
+Use  "rb"  mode:  
+
+with open("image.jpg", "rb") as img:
+data = img.read()
+
+
+---
+

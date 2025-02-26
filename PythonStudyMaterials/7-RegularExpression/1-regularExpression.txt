@@ -1,0 +1,720 @@
+===================================================================================
+				Regular Expression
+			====================================
+		=========================================================
+===================================================================================
+regular expression create a pattern where include string and number,special character 
+
+regular expression is search the string , pattern of given easily 
+
+Ex 
+
+Email id pattern
+
+mobile number pattern
+
+===================================================================================
+
+Regular Expression contains many inbuilt functions
+
+0--compile()
+===========
+
+this function compile a pattern into regexpObjects
+
+Ex--
+
+pattern=re.compile("ab")
+
+
+====================================================================================
+
+00--finditer()
+============
+
+this function returns iterator objects which yield match for every object match
+
+ex-
+===
+
+matcher=pattern.finditer("ababaab")
+
+1.match()
+2.fullmatch()
+3.search()
+4.findall()
+5.findfilter()
+6.sub()
+7.subn()
+8.split()
+9.compile()
+
+
+===================================================================================
+
+				Program
+			==========================
+		===============================================
+
+import re
+pattern=re.compile("ab")
+matcher=pattern.finditer("abaababa")
+count=0
+for match in matcher:
+    count=count+1
+    print(match.start(),"....",match.end(),'....',match.group())
+print("Number of Occurence of String ::",count)
+
+
+		Output
+
+0 .... 2 .... ab
+3 .... 5 .... ab
+5 .... 7 .... ab
+Number of Occurence of String :: 3
+
+
+============================================================
+============================================================
+
+Note - we can pass pattern directly as arguments to finditer() function
+
+Ex-
+
+import re
+matcher=re.finditer("ab","abaababa")
+count=0
+for match in matcher:
+    count=count+1
+    print(match.start(),"....",match.end(),'....',match.group())
+print("Number of Occurrence of String ::",count)
+
+		Output
+
+0 .... 2 .... ab
+3 .... 5 .... ab
+5 .... 7 .... ab
+Number of Occurrence of String :: 3
+
+====================================================================================
+====================================================================================
+				Character Classes
+			=================================
+		====================================================
+
+[abc]===========Either a or b or c
+==============================
+================================
+Ex-
+
+import re
+x="[abc]"
+matcher=re.finditer(x,"a7b@k9z")
+for match in matcher:    
+    print(match.start(),'....',match.group())
+
+
+		Output
+0 .... a
+2 .... b
+
+===================================================================================
+===================================================================================
+
+[^abc]==========Except a and b and c
+=================================
+=====================================
+
+Ex-
+
+import re
+x="[^abc]"
+matcher=re.finditer(x,"a7b@k9z")
+for match in matcher:    
+    print(match.start(),'....',match.group())
+
+
+		Output
+
+1 .... 7
+3 .... @
+4 .... k
+5 .... 9
+6 .... z
+
+===================================================================================
+===================================================================================
+
+[a-z]===========Any Lower Alphabetical  symbol
+===========================================
+===============================================
+Ex-
+
+import re
+x="[a-z]"
+matcher=re.finditer(x,"a7b@k9z")
+for match in matcher:    
+    print(match.start(),'....',match.group())
+
+		Output
+
+0 .... a
+2 .... b
+4 .... k
+6 .... z
+
+====================================================================================
+====================================================================================
+
+[A-Z]===========Any Uper  Alphabetical  symbol
+============================================
+================================================
+
+Ex-
+
+import re
+x="[A-Z]"
+matcher=re.finditer(x,"a7b@k9z")
+for match in matcher:    
+    print(match.start(),'....',match.group())
+
+
+		Output
+
+
+
+======================================================================================
+======================================================================================
+
+[a-zA-Z]===========Any  Alphabetical  symbol
+=========================================
+=============================================
+Ex-
+
+import re
+x="[a-zA-Z]"
+matcher=re.finditer(x,"a7b@k9z")
+for match in matcher:    
+    print(match.start(),'....',match.group())
+
+
+		Output
+0 .... a
+2 .... b
+4 .... k
+6 .... z
+
+====================================================================================
+====================================================================================
+
+[0-9]============any digit from 0 to 9
+===================================
+======================================
+
+Ex-
+
+
+import re
+x="[0-9]"
+matcher=re.finditer(x,"a7b@k9z")
+for match in matcher:    
+    print(match.start(),'....',match.group())
+
+
+		Output
+
+1 .... 7
+5 .... 9
+
+=======================================================================================
+=======================================================================================
+
+[a-zA-Z0-9]=======Any alphanumeric character
+==========================================
+==============================================
+
+Ex-
+
+import re
+x="[a-zA-Z0-9]"
+matcher=re.finditer(x,"a7b@k9z")
+for match in matcher:    
+    print(match.start(),'....',match.group())
+
+
+			Output
+
+0 .... a
+1 .... 7
+2 .... b
+4 .... k
+5 .... 9
+6 .... z
+
+====================================================================================
+====================================================================================
+
+[^a-zA-Z0-9]=======Except Any alphanumeric character(special caharcter)
+==================================================================
+========================================================================
+Ex-
+
+import re
+x="[^a-zA-Z0-9]"
+matcher=re.finditer(x,"a7b@k9z")
+for match in matcher:    
+    print(match.start(),'....',match.group())
+
+
+		Output
+
+3 .... @
+
+===================================================================================
+===================================================================================
+
+
+
+
+
+
+-----------------------Some Import Fundamental find Out Regular Expression--------------------------------
+
+^-----------------------------Strating
+
+$----------------------------Ending
+
+[ ]-----------------------Matches any single character in brackets
+
+[^ ]---------------------Not Match any single Character in brackets
+
+\w-----------------------word (a-zA-Z0-9_)
+
+\W-----------------------Non word(.!*%@)
+
+\s------------------------Matches Whitespaces  equivalent to [\t\n\r]
+
+\S-----------------------Not Match Whitespaces
+
+\d-----------------------Matches digit
+
+\D---------------------Not Match digit
+
+\A---------------------Match begining of String
+
+\z---------------------Match ending of String
+
+\b--------------------Match Boundries 
+
+\n--------------------Match Newline
+
+\t--------------------Match tab
+
+------------------------------------------Some Inbuilt  Function In Regular Expression----------------------------------------------
+
+import re
+
+
+
+1.match()---
+	Match  function is help to match at begining of string
+
+	re.match(pattern,string,flag)
+
+Ex-------
+	re.match("This","This is My First Matching Program")
+
+	#<re object: span(0,4) match='This'>
+
+
+	re.match("My","This is My First Matching Program")
+
+	#None   because match only match first string (i.e This )
+
+
+
+	re.match("this","This is My First Matching Program")
+
+	# None   because this is casesensitive language
+
+
+
+	re.match("This","This is My First Matching Program,This will help me to complete")
+
+	# <re.Match object; span=(0, 4), match='This'>  Because match match only first Element
+
+
+.start()
+.end()
+.group()
+
+	re.match("This","This is My First Matching Program").start()
+
+		# 0
+
+
+	re.match("This","This is My First Matching Program").end()
+
+		# 4
+
+
+	re.match("This","This is My First Matching Program").group()
+
+		# 'This'
+
+
+===================================================================================
+
+2-fullmatch()
+
+	 complete string should be  matched according to  givern pattern 
+
+	if complete string mathed then this function returns Match objects otherwise return None
+
+
+	re.fullmatch("ab","ababab")
+	#'ababab'
+
+	re.fullmatch("ab","abcd")
+	#'None'
+ 
+
+====================================================================================
+sub()
+=====
+
+it replace string with given string 
+
+and returns string
+
+sub(regex,replacement,targetstring)
+
+===============
+
+Ex-
+
+re.sub("[a-z]","#","a4b5c9")
+Output
+'#4#5#9'
+
+
+====================================================================================
+
+subn()
+======
+its same like sub() but its also returns number of replacement element
+
+return tuple
+
+Ex--
+
+re.sub("[a-z]","#","a4b5c9")
+Output
+('#4#5#9' ,3)
+
+=====================================================================================
+
+split()
+======
+
+its split the given string into list format
+
+re.split(",","MUKESH")
+#
+
+
+====================================================================================
+Note - if we want to ignore the case of string then we use re.IGNORECASE
+
+Ex
+
+>>> re.match("Mu","mukesh",re.IGNORECASE)
+<re.Match object; span=(0, 2), match='mu'>
+
+
+>>> re.match("Mu","mukesh")		#None because casesenstivity
+
+
+
+
+2.search()----------
+
+	re.search(pattern,string,flag)
+
+	This search the string anywhere from starting to ending of string 
+
+Ex-----------
+	re.search("My","This is My Search Function working")
+
+	#<search object: span(8,10) search='My'>
+
+
+	re.search("This","This is My Search Function working")
+
+	#<search object:span(0,4) search='This'>
+
+
+
+3.findall()-------------
+
+	re.findall(pattern,string,flag)
+
+	this function find all string from starting to ending how many type lies  in list form 
+
+Ex----------------
+
+	re.findall("a","This is a findall function where we find a string")
+
+	#[a , a , a]
+
+
+
+	---------------------------------Some Special Case of Match , Search , Findall----------------------------
+
+re.match("a|b","abcde")
+
+#<match object: span(0,1) match='a'>
+
+
+re.search("a|b","bcdae")
+
+#<search object:span(3,4) search='a'>
+
+re.findall("a|b","abcde")
+
+#[a  ,  b]
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Character Sets 
+
+\w------------Match (a-zA-Z0-9_)  Alphanumeric , Underscores
+\W------------Match non word (.@%#&)
+
+
+re.search('\w',"This is Searching")
+#'T'
+
+re.search('\w\w',"This is Searching")
+#'Th'
+
+re.search('\W',"@This is Searching")
+#	'@'
+
+re.search('\W\W',"#%is is Searching")
+#	'#%'
+
+
+\s---------------Matches Whitespaces  \t , \n , \r
+\S--------------Not Matches WhiteSpaces
+
+re.search('\s',"This is \nOur Searching Technique")
+
+#<search object:span(8,9) match=' ' >
+
+
+re.search('\S',"This is \nOur Searching Technique")
+
+#<search object: span(0,1) match='T'>
+
+re.search('\S\S',"$%This is \nOur Searching Technique")
+
+#<search object: span(0,2) match='$%'>
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Quantifiers
+
+a-----------------------------------------------------------Exactly match 'a'
+==============================================
+
+Ex-
+
+import re
+x="a"
+matcher=re.finditer(x,"abaabaaab")
+for match in matcher:    
+    print(match.start(),'....',match.group())
+
+
+		Output
+
+0 .... a
+2 .... a
+3 .... a
+5 .... a
+6 .... a
+7 .... a
+
+====================================================================================
+
+a+-----------------------------------------------------------1 or more Matches
+==============================================
+
+Ex-
+
+import re
+x="a+"
+matcher=re.finditer(x,"abaabaaab")
+for match in matcher:    
+    print(match.start(),'....',match.group())
+
+
+		Output
+
+0 .... a
+2 .... aa
+5 .... aaa
+
+===================================================================================
+
+a*---------------------------------------------------------0 or more Matches
+===============================================
+
+Ex-
+
+import re
+x="a*"
+matcher=re.finditer(x,"abaabaaab")
+for match in matcher:    
+    print(match.start(),'....',match.group())
+
+
+		Output
+
+0 .... a
+1 .... 
+2 .... aa
+4 .... 
+5 .... aaa
+8 .... 
+9 .... 
+
+===================================================================================
+
+a?---------------------------------------------------------0 or 1 matches Only
+================================================
+
+Ex--
+
+import re
+x="a?"
+matcher=re.finditer(x,"abaabaaab")
+for match in matcher:    
+    print(match.start(),'....',match.group())
+
+			Output
+
+0 .... a
+1 .... 
+2 .... a
+3 .... a
+4 .... 
+5 .... a
+6 .... a
+7 .... a
+8 .... 
+9 .... 
+
+====================================================================================
+
+a{m}----------------------------------------------------Exactly m number of a
+==================================================
+
+Ex-
+
+import re
+x="a{3}"
+matcher=re.finditer(x,"abaabaaab")
+for match in matcher:    
+    print(match.start(),'....',match.group())
+
+
+			Output
+
+5 .... aaa
+
+====================================================================================
+
+a{n:m}------------------------------------------------Specific given Number Matches means minimum m number of a
+and maximum n number of a
+
+====================================================================================
+
+Ex-
+
+import re
+x="a{2,3}"
+matcher=re.finditer(x,"abaabaaab")
+for match in matcher:    
+    print(match.start(),'....',match.group())
+
+
+			Output
+
+2 .... aa
+5 .... aaa
+
+====================================================================================
+
+ 
+
+
+print(re.search(r'\w+',"This is Our Searching Technique"))
+
+# 'This'
+
+print(re.search(r'\w+\W',"This is Our Searching Technique"))
+
+# 'This  '
+
+print(re.search(r'\w+\W+\w',"This is Our Searching Technique"))
+
+# 'This is'
+
+print(re.search(r'\w*',"This is Our Searching Technique"))
+
+#'This'
+
+print(re.search(r'\w*',"  is Our Searching Technique"))
+# <re.Match object; span=(0, 0), match=' ' >
+
+print(re.search(r'\W*\w*'," is \nOur Searching Technique"))
+#<re.Match object; span=(0, 3), match=' is' >
+
+print(re.search(r'\w?',"This is Our Searching Technique"))
+
+# <re.Match object; span=(0, 1), match='T' >
+
+
+print(re.search(r'\w[0:]',"This is Our Searching Technique"))
+
+# 'This'
+
+print(re.search(r'\w[0:2]',"This is Our Searching Technique"))
+
+#'Th'
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Digits
+
+/d---------------------------------Matches only Digits
+/D--------------------------------Matches Non digits
+
+
+print(re.search(r'\d+',"12  345678"))
+
+#'12'
+
+print(re.search(r'\d+\W+\d+',"12  345678"))
+
+#'12  345678'
+
+print(re.search(r'\D+',"12  345678"))
+
+# ' '
+
+print(re.search(r'\D+',"asdf"))
+
+# ' asdf '

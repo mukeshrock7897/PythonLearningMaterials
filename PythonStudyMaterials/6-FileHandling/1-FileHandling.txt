@@ -1,0 +1,951 @@
+				5:56 PM 10/5/2018
+=====================================================================================
+				File Handling
+			=================================
+=====================================================================================
+
+file is a document who contains some information or data 
+
+this data is stored permanently in file ,So that in future we can get reterive infomation........
+
+===================================================================================
+				Types of File
+			=============================
+
+files are two types
+==================
+====================
+
+1--text files
+==========
+	usually we can use text files to store character data 
+	its externsion is .txt
+Ex-
+
+abc.txt
+
+============
+2--Binary files
+=============
+	usually we can use binary files to store data like image,videos files,audios files etc.....
+
+===================================================================================
+
+===================================================================================
+				Opening a file
+===================================================================================
+===================================================================================
+
+Before performing in Operation (like read or write) on the file first 
+we have to open that file for this we should use Python inbuilt function open()
+
+but at the time of open we have to specify its modes
+
+Syntax
+-=====
+f=open(file name,"mode")
+
+================
+
+Modes of files
+=============
+===============
+
+r
+====
+open a file into read mode , file pointer is positioned at the begging of file
+
+if file does not exist then we will get FileNotFoundError
+
+===================================================================================
+
+r+
+====
+to read and write data 
+
+the previous data in file will not be deleted 
+
+the file pointer is placed at the begging of the file 
+
+====================================================================================
+rb
+====
+
+Reading only binary mode
+
+===================================================================================
+rb+
+====
+Reading and writing both in binary format
+
+===================================================================================
+
+w
+====
+open a existing file for write operation , 
+
+if file already conatins some data then it will be overwrite
+
+if file is not exist ,then it will create new file 
+
+===================================================================================
+
+w+
+===
+open a file for writing and reading mode 
+
+if file already conatins some data then it will be overwrite
+
+if file is not exist ,then it will create new file 
+
+====================================================================================
+
+wb
+====
+open a file in writing only binary mode 
+
+if file already conatins some data then it will be overwrite
+
+if file is not exist ,then it will create new file 
+
+====================================================================================
+
+wb+
+=====
+open a file in writing and reading in binary mode
+
+if file already conatins some data then it will be overwrite
+
+if file is not exist ,then it will create new file 
+
+=====================================================================================
+
+a
+====
+open a file in append mode 
+
+the file pointer is at the end o file if file exist
+
+it does not overwrite the existing data 
+
+if file does not exist , it create new file for writing 
+
+====================================================================================
+
+a+
+====
+open a file in append and reading mode 
+
+the file pointer is at the end o file if file exist
+
+it does not overwrite the existing data 
+
+if file does not exist , it create new file for writing 
+
+====================================================================================
+ab
+====
+open a file in appending binary mode 
+
+the file pointer is at the end o file if file exist
+
+it does not overwrite the existing data 
+
+if file does not exist , it create new file for writing 
+
+======================================================================================
+ab+
+====
+open a file appending and reading in binary mode
+
+the file pointer is at the end o file if file exist
+
+it does not overwrite the existing data 
+
+if file does not exist , it create new file for writing 
+
+===================================================================================
+===================================================================================
+
+				Closing a file
+===================================================================================
+===================================================================================
+
+After completing our operation on the file ,
+
+it is an highly recommended to close the file for this we use  close()  function
+
+---------
+f.close()
+
+
+===================================================================================
+===================================================================================
+			Various properties of file objects
+			============================
+			============================
+===================================================================================
+===================================================================================
+
+once you opened any  file you have some file objects,you can get various information related files
+
+===================================================================================
+name
+----------
+Return the current name of file
+
+===================================================================================
+mode
+---------
+Return in which mode file is opened
+
+====================================================================================
+closed
+-----------
+Return True if file closed
+
+====================================================================================
+readable()
+------------------
+
+Returns True if file is readable else False
+
+====================================================================================
+writeable()
+-------------------
+
+Returns True if file is writable else False
+
+=======================================
+============================================
+Example
+
+file=open("today.txt","r")
+print("File Name is ::",file.name)
+print("File Mode is ::",file.mode)
+print("Is File Readable ::",file.readable())
+print("Is File is Writeable ::",file.writable())
+print("Is File Closed ::",file.closed)
+
+
+========================================
+=============================================
+Output
+
+File Name is :: today.txt
+File Mode is :: r
+Is File Readable :: True
+Is File is Writeable :: False
+Is File Closed :: False
+
+===================================================================================
+===================================================================================
+
+				Writing data to Text Files
+			=============================================
+====================================================================================
+
+you can write character data to text file by using the 2 methods
+
+=================
+====================
+write(str)
+
+writelines(list of lines)
+
+==========================
+==============================
+Ex-1
+
+file=open("abc.txt","w")
+
+f.write("This is writen normally")
+
+f.close()
+
+Note - In the Above program , if any data will be already exist then it will be overwrite
+
+if we want that it not overwrite then we should open in append mode (i.e  a)
+
+=============================
+===================================
+
+Ex-2
+
+file=open("abc.txt","w")
+
+l=["Ram\n","Shyam\n","Seeta\n"]
+
+file.writelines(l)
+
+file.close()
+
+
+Note-while writing data by using write() methods , compulsory we have to provide line seprator(\n)
+otherwise total data should be a single line
+
+====================================================================================
+====================================================================================
+
+			Reading Character data from text file
+====================================================================================
+====================================================================================
+
+we can read data from file by using read( ) function
+
+========
+read()===========to read total data of file
+
+read(n)==========to read n character data from file 
+
+readline()========to read only one line
+
+readlines()=======to read all lines into a list
+
+====================================================================================
+
+
+				With Statement
+====================================================================================
+
+with statement used while opening a file , we can use this to group file operation  satatments 
+within a block
+
+the advantage of with statement is it will automatically close the file after exiting the with block
+
+we don't need to close the file manually by close() function
+
+============================
+==================================
+========================================
+
+Ex--
+===
+=====
+
+with open("today.txt","a") as f:
+    f.write("\nThis came by With Statemnt")
+
+====================================================================================
+====================================================================================
+
+			Seek() and Tell() Methods
+====================================================================================
+====================================================================================
+
+tell()
+=====
+=======
+
+tell() method return current position  of the cursor (file pointer) from begging of the file
+
+the positon index of first character in files is zero just like string index
+
+file.tell()
+
+Ex--1
+=======
+
+file=open("today.txt","r")
+print("First Time Position::",file.tell())
+print(file.read())
+print("Last Time Position::",file.tell())
+
+	Output
+
+First Time Position:: 0
+This is Written By Me Again In Python Prompt
+This came by With Statemnt
+Last Time Position:: 72
+
+=====================================================================================
+=====================================================================================
+
+Ex-2
+=======
+
+file=open("today.txt","r")
+print("First Time Position::",file.tell())
+print(file.read(5))
+print("Last Time Position::",file.tell())
+
+	Output
+
+First Time Position:: 0
+This 
+Last Time Position:: 5
+
+=====================================================================================
+=====================================================================================
+
+seek()
+======
+========
+
+we use seek() function to move the cursor (file pointer) to specified location
+
+file.seek(offset,fromwhere)
+
+offset represents the number of positions
+
+0----------From beginning of file(default value)
+1----------From current location
+2----------From end of the file position
+
+===================
+=======================
+
+Ex--
+
+file=open("today.txt","r")
+print("Current Cursor  Position::",file.tell())
+file.seek(1)
+print("Now Current Cursor  Position::",file.tell())
+file.seek(2)
+print("Now Current Cursor  Position::",file.tell())
+file.seek(17)
+print("Now Current Cursor  Position::",file.tell())
+
+		Output
+
+Current Cursor  Position:: 0
+Now Current Cursor  Position:: 1
+Now Current Cursor  Position:: 2
+Now Current Cursor  Position:: 17
+
+===================================================================================
+Check that file is exist or not
+=========================
+================================
+impoty os
+
+os.path.isfile(filename with Extension)
+ 
+Ex-
+os.path.isfile("today.txt")		#True
+
+=====================================================================================
+=====================================================================================
+
+Program to check whether the given file exists or not , if it exist then print its content
+==========================================================================
+==========================================================================
+
+import os,sys
+name=input("Enter The File Name with Its Extension ::")
+if os.path.isfile(name):
+    f=open(name,'r')
+    print("Its Content::\n\n",f.read())
+else:
+    print("File Does't Exist")
+    sys.exit(0)
+    
+
+	Output
+
+Enter The File Name with Its Extension ::today.txt
+Its Content::
+
+ This is Written By Me Again In Python Prompt
+This came by With Statemnt
+
+==========================
+
+Enter The File Name with Its Extension ::today
+File Does't Exist
+
+====================================
+Note - In above program toexit system without executing rest of program
+
+agrument 0 means normal termination and its default value
+
+===================================================================================
+program to print number of lines ,words,and character present in the given file
+
+==============
+
+import os,sys
+name=input("Enter The File Name with Its Extension ::")
+if os.path.isfile(name):
+    f=open(name,'r')
+    
+else:
+    print("File Does't Exist")
+    sys.exit()
+    
+lcount=wcount=ccount=0
+for line in f:
+    lcount=lcount+1
+    ccount=ccount+len(line)
+    words=line.split()
+    wcount=wcount+1
+print("Total Number of Lines ::",lcount)
+print("Total Number of Character ::",ccount)
+print("Total Number of Word ::",wcount)
+
+			Output
+
+Enter The File Name with Its Extension ::today.txt
+Total Number of Lines :: 2
+Total Number of Character :: 71
+Total Number of Word :: 2
+
+====================================================================================
+====================================================================================
+
+				Handling Binary Data
+			======================================
+		=======================================================
+
+
+it is very common requirement to read or write binary data like images ,videos files ,audio files etc
+
+Ex-
+===
+=====
+
+f1=open("mukesh.jpg","rb")
+f2=open("new.jpg","wb")
+
+bytes=f1.read()
+f2.write(bytes)
+print("data availble")
+
+
+====================================================================================
+====================================================================================
+			Handling CSV files
+		===================================
+====================================================================================
+
+csv==comma seperated values
+
+as the part of programming , it is very common requirement to write and read data csv files 
+
+python provides csv module to handle csv files
+
+
+Ex--
+
+import csv
+with open("emp.csv","w",newline='')as f:
+    w=csv.writer(f)
+    w.writerow(["ENO","ENAME","ESAL","EADDR"])
+    n=int(input("Enter the Number of Employee:: "))
+    for i in range(n):
+        eno=input("Enter The Employee Number:: ")
+        ename=input("Enter The Employee Name:: ")
+        esal=input("Enter The Employee Salary:: ")
+        eaddr=input("Enter The Employee Address:: ")
+        w.writerow([eno,ename,esal,eaddr])
+        
+
+--------------------
+
+Enter the Number of Employee:: 3
+
+Enter The Employee Number:: 100
+Enter The Employee Name:: Mukesh
+Enter The Employee Salary:: 50000
+Enter The Employee Address:: Banglore
+
+Enter The Employee Number:: 200
+Enter The Employee Name:: Amresh
+Enter The Employee Salary:: 60000
+Enter The Employee Address:: Saudi
+
+Enter The Employee Number:: 300
+Enter The Employee Name:: Indresh
+Enter The Employee Salary:: 40000
+Enter The Employee Address:: Jaipur
+
+
+
+Note- Observe the difference with newline attribute and without 
+
+with open("emp.csv","w",newline="") as f:
+
+with open("emp.csv","w") as f:
+
+if we are not using newline attribute then in the csv file blank line will be included between data
+
+Ex-
+
+
+[
+ ['ENO', 'ENAME', 'ESAL', 'EADDR'], [],
+ ['100', 'Mukesh Yadav', '100000', 'Banglore'], [],
+ ['200', 'Amresh Yadav', '200000', 'Oman'], [], 
+ ['300', 'Indresh Yadav', '40000', 'Jaipur'], []
+]
+
+Here [ ] is extra because we don't use newline
+
+
+==============================================
+=========================================================
+
+if we are using newline attribute then no blank line will be included 
+
+Ex--
+
+[
+['ENO', 'ENAME', 'ESAL', 'EADDR'],
+ ['100', 'Mukesh Yadav', '10000', 'Banglore'],
+ ['200', 'Amresh Yadav', '20000', 'Oman'], 
+['300', 'Indrsh Yadav', '3000', 'Jaipur']
+]
+
+
+
+
+====================================================================================
+====================================================================================
+				Reading Data from CSv Files
+			=========================================
+
+>>> import csv
+>>> f=open("emp.csv","r")
+>>> r=csv.reader(f)
+>>> data=list(r)
+>>> for line in data:
+	for word in line:
+		print(word,'\t',end=" ")
+	print()
+
+
+	
+ENO 	ENAME 	ESAL 	EADDR 	
+100 	Mukesh 	50000 	Banglore 	
+200 	Amresh 	60000 	Saudi 	
+300 	Indresh 	40000 	Jaipur 	
+
+
+===================================================================================
+===================================================================================
+
+			Zipping and Unzipping files 
+		==========================================
+	===========================================================
+
+its very common requirement to zip and unzip the files
+
+its advantage are
+==============
+==================
+
+to imporove memory utilization
+
+we can reduce transport time 
+
+we can improve  performance 
+ 
+==================
+
+to perform zip and unzip operation python provide ZipFile module 
+
+===================================================================================
+===================================================================================
+
+			To Create Zip File
+		===============================
+	==================================================
+
+we have to create ZipFile class object with name of zip file ,mode and constant ZIP_DEFLATED
+
+this constant represents we are creating zip file
+
+Syntax---
+=========
+
+f=ZipFile("FileName.zip","mode",ZIP_DEFLATED)
+
+once we create ZipFile object ,we can add files by using write() method
+
+f.write(filename)
+
+Note- In last we will have to close this file
+
+f.close()
+
+=============================================================================
+===================================================================================
+
+Ex--
+
+from zipfile import *
+f=ZipFile("document.zip","w",ZIP_DEFLATED)
+f.write("Excecise 2.py")
+f.write("Excecise 3.py")
+f.close()
+print("Zip File Created Successfully ")
+
+
+===================================================================================
+===================================================================================
+				Unzip the Files
+			==================================
+		=====================================================
+
+we have to create zipfile objects
+
+Syntax-
+========
+==========
+
+f=ZipFile("filename.zip","mode",ZIP_STORED)
+
+ZIP_STORED represents unzip operation ,this is default value 
+
+once we created ZipFile object for unzip operation , we can get all file names presents in that
+zip file by using namelist() method
+
+name=f.namelist()
+
+==================================================================================
+Ex-
+
+from zipfile import *
+f=ZipFile("document.zip","r",ZIP_STORED)
+names=f.namelist()
+for name in names:
+    print("File Name ::",name)
+    print("Content Of This File ")
+    f1=open(name,'r')
+    print(f1.read())
+    print()
+
+		Output
+
+File Name :: Excecise 2.py
+
+Content Of This File 
+
+from zipfile import *
+f=ZipFile("document.zip","w",ZIP_DEFLATED)
+f.write("Excecise 2.py")
+f.write("Excecise 3.py")
+f.close()
+print("Zip File Created Successfully ")
+
+
+File Name :: Excecise 3.py
+
+Content Of This File 
+
+import csv
+with open("emp.csv","w",newline='')as f:
+    w=csv.writer(f)
+    w.writerow(["ENO","ENAME","ESAL","EADDR"])
+    n=int(input("Enter the Number of Employee:: "))
+    for i in range(n):
+        eno=input("Enter The Employee Number:: ")
+        ename=input("Enter The Employee Name:: ")
+        esal=input("Enter The Employee Salary:: ")
+        eaddr=input("Enter The Employee Address:: ")
+        w.writerow([eno,ename,esal,eaddr])
+===================================================================================
+===================================================================================
+
+			Working with directories
+		===========================================
+	===============================================================
+
+collections of files is known as directories
+
+os module works for directory related operations
+
+===================================================================================
+
+Know current directory
+==================== 
+os.getcwd()
+
+
+
+create subdirectry  in the current working directory
+==============================================
+
+os.mkdir(dir_name)
+
+
+create subdirectory inside the subdirectory
+===========================================
+
+os.mkdir(dir_name/dir_name)
+
+
+create multiple directory like dir1 dir2 dir3
+============================================
+
+os.makedirs(dir1/dir2/dir3)
+
+
+change directory
+=====================
+
+os.chdir(new_dir)
+
+
+
+delete the directory
+==================
+
+os.rmdir(dir_name)
+
+
+delete the multiple  directories
+===========================
+
+
+os.removedirs(dir1/dir2/dir3)
+
+
+
+remove all files from directory
+==========================
+
+os.remove(dir_name)
+
+
+
+rename the directory
+=====================
+
+
+os.rename(old,new)
+
+
+
+know content of directroy
+========================
+
+os.listdir(".")
+
+
+
+know contents of directory including sub directories
+=============================================
+
+
+os.walk(path,topdown=True,onerror=None,follolinks=False)
+
+its returns iterator object whose contents can be displayed by using for loop
+
+path=====directory path means cwd
+
+topdown===Travel from top to Bottom
+
+onerror===on error detected which function has to execute 
+
+follolinks===to visit directories pointed by symbolic links
+
+
+Ex--
+
+import os
+for dirpath,dirnames,filenames in os.walk('.'):
+    print("Current Directory Path ::",dirpath)
+    print("Directories ::",dirnames)
+    print("Files ::",filenames)
+    print()
+
+
+=============
+
+to display content  of particular directory , we have to provide that directory name as arguemnt 
+in walk() function
+
+os.walk("dir_name")
+
+====================================================================================
+====================================================================================
+
+what is difference between listdir() and walk() functions
+
+in case of listdir() ,we will get contents of specified directory but not sub directory contents
+
+But in the case of walk() funcion we will get contents of specified directory and its sub directory 
+also
+
+====================================================================================
+====================================================================================
+
+How to get information about a file
+==============================
+
+we can  get stastics of a file like size,time etc  by stat() function
+
+os.stat(filename)
+
+-----------------------------
+the statatics of a file includes the following parameter
+
+===============================================
+
+st_mode====protection bits
+
+st_ino=====Inode number
+
+st_dev====device
+
+st_nlink====no of hard liks 
+
+st_uid=====userid of owner
+
+st_gid====group id of owner
+
+st_size====size of file in bytes 
+
+st_atime===Time of most recent access
+
+st_mtime===Time of most recent modification
+
+st_ctime===Time of most recent meta data chnage
+
+Note-- st_atime  , st_mtime , st_ctime returns the time as number of milli seconds 
+since jan 1st 1970 ,12:00 AM 
+
+By using datetime module fromtimestamp() function , we can get exact date and time
+
+Ex----
+
+import os
+print(os.stat("if.py"))
+
+	Output
+
+os.stat_result(
+
+st_mode=33206, 
+st_ino=1407374883583413, 
+st_dev=551905216, 
+st_nlink=1,
+st_uid=0, 
+st_gid=0,
+st_size=198,
+st_atime=1538758780, 
+st_mtime=1531614153, 
+st_ctime=1531613623
+
+)
+
+
+============================================
+Ex-2
+
+import os
+from datetime import *
+stats=os.stat("if.py")
+print("File Size ::",stats.st_size)
+print("File Accessed Last Time:: ",datetime.fromtimestamp(stats.st_atime))
+print("File Modified Last Time:: ",datetime.fromtimestamp(stats.st_mtime))
+print("File Most Recent Change:: ",datetime.fromtimestamp(stats.st_ctime))
+
+
+			Output
+
+File Size :: 198
+File Accessed Last Time::  2018-10-05 22:29:40.879119
+File Modified Last Time::  2018-07-15 05:52:33.332320
+File Most Recent Change::  2018-07-15 05:43:43.406209

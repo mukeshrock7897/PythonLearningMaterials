@@ -1,0 +1,231 @@
+Here are some important interview questions and answers based on the concepts you provided:  
+
+---
+
+### **Anonymous Function & Lambda Function**  
+
+#### **Q1: What is an anonymous function in Python?**  
+**A:** An anonymous function is a function that is defined without a name. In Python, these are typically created using the `lambda` keyword.  
+
+#### **Q2: How does a lambda function differ from a normal function?**  
+**A:**  
+| **Lambda Function**                                  | **Normal Function** |
+|---------------------                                 |---------------------|
+| Defined using the `lambda` keyword                   | Defined using the `def` keyword 
+| One-line function                                    | Can have multiple lines 
+| Can take multiple arguments but only one expression  | Can have multiple expressions and statements 
+| Does not require a `return` keyword                  | Requires `return` for returning values 
+
+#### **Q3: When should you use a lambda function?**  
+**A:** Lambda functions are useful for short-lived operations, such as passing a function as an argument to higher-order functions (`map()`, `filter()`, `reduce()`).  
+
+#### **Q4: How do you write a lambda function to find the maximum of two numbers?**  
+   
+max_num = lambda a, b: a if a > b else b
+print(max_num(10, 20))  # Output: 20
+   
+
+---
+
+### **filter(), map(), and reduce()**  
+
+#### **Q5: What is the difference between filter(), map(), and reduce()?**  
+| Function     | Purpose                               | Input               | Output |
+|----------    |---------|-------|--------|
+| `filter()`   | Filters elements based on a condition | Function & iterable | Filtered iterable |
+| `map()`      | Applies a function to all elements    | Function & iterable | Modified iterable |
+| `reduce()`   | Applies a function cumulatively       | Function & iterable | Single reduced value |
+
+#### **Q6: Write a Python program to filter even numbers from a list using `filter()`.**  
+   
+l = [1, 2, 3, 4, 5, 6, 7, 8]
+even_numbers = list(filter(lambda x: x % 2 == 0, l))
+print(even_numbers)  # Output: [2, 4, 6, 8]
+   
+
+#### **Q7: How does `reduce()` work? Give an example.**  
+**A:** `reduce()` applies a function cumulatively to a sequence and reduces it to a single value.  
+Example: Sum of numbers in a list  
+   
+from functools import reduce
+nums = [1, 2, 3, 4, 5]
+result = reduce(lambda x, y: x + y, nums)
+print(result)  # Output: 15
+   
+
+---
+
+### **Iterator & Generator**  
+
+#### **Q8: What is an iterator in Python?**  
+**A:** An iterator is an object that implements the iterator protocol (`__iter__()` and `__next__()`). It allows traversal over a sequence one element at a time.
+
+#### **Q9: How do you create a custom iterator?**  
+   
+class MyNumbers:
+    def __iter__(self):
+        self.num = 1
+        return self
+
+    def __next__(self):
+        if self.num <= 5:
+            val = self.num
+            self.num += 1
+            return val
+        else:
+            raise StopIteration
+
+my_iter = MyNumbers()
+iterator = iter(my_iter)
+for i in iterator:
+    print(i)  # Output: 1 2 3 4 5
+   
+
+#### **Q10: What is the difference between an iterator and a generator?**  
+| Feature        | Iterator                                 | Generator |
+|----------------|------------------------------------------|-----------|
+| Implementation | Implements `__iter__()` and `__next__()` | Uses `yield` keyword 
+| Memory Usage   | Stores all values in memory              | Generates values lazily 
+| Performance    | Less efficient                           | More efficient for large data 
+
+#### **Q11: Write a simple generator function that yields Fibonacci numbers.**  
+   
+def fibonacci(n):
+    a, b = 0, 1
+    for _ in range(n):
+        yield a
+        a, b = b, a + b
+
+for num in fibonacci(5):
+    print(num)  # Output: 0 1 1 2 3
+   
+
+---
+
+### **Decorator & Decorator Chaining**  
+
+#### **Q12: What is a decorator in Python?**  
+**A:** A decorator is a function that modifies the behavior of another function without changing its structure.
+
+#### **Q13: How do you create a simple decorator?**  
+   
+def decor(func):
+    def wrapper():
+        print("Before function execution")
+        func()
+        print("After function execution")
+    return wrapper
+
+@decor
+def say_hello():
+    print("Hello!")
+
+say_hello()
+# Output:
+# Before function execution
+# Hello!
+# After function execution
+   
+
+#### **Q14: What is decorator chaining?**  
+**A:** Applying multiple decorators to a single function.  
+   
+def decor1(func):
+    def wrapper():
+        print("Decorator 1")
+        func()
+    return wrapper
+
+def decor2(func):
+    def wrapper():
+        print("Decorator 2")
+        func()
+    return wrapper
+
+@decor1
+@decor2
+def greet():
+    print("Hello!")
+
+greet()
+# Output:
+# Decorator 1
+# Decorator 2
+# Hello!
+   
+
+---
+
+### **Function Aliasing & Nested Functions**  
+
+#### **Q15: What is function aliasing?**  
+**A:** Function aliasing means giving a function another name.  
+   
+def greet(name):
+    print(f"Hello, {name}")
+
+hello = greet  # Function aliasing
+hello("Mukesh")  # Output: Hello, Mukesh
+   
+
+#### **Q16: What happens if we delete the original function after aliasing?**  
+**A:** The alias still works.  
+   
+del greet
+hello("Amresh")  # Output: Hello, Amresh
+   
+
+#### **Q17: What is a nested function?**  
+**A:** A function defined inside another function.  
+   
+def outer():
+    print("Outer function")
+
+    def inner():
+        print("Inner function")
+    
+    inner()
+
+outer()
+# Output:
+# Outer function
+# Inner function
+   
+
+#### **Q18: What is the benefit of using a nested function?**  
+**A:** Encapsulation, data hiding, and improving modularity.
+
+---
+
+### **Scenario-Based Questions**  
+
+#### **Q19: How can you use a lambda function inside a decorator?**  
+**A:**  
+   
+def decor(func):
+    return lambda x: func(x).upper()
+
+@decor
+def greet(name):
+    return f"Hello, {name}"
+
+print(greet("Mukesh"))  # Output: HELLO, MUKESH
+   
+
+#### **Q20: How can you filter prime numbers from a list using `filter()`?**  
+   
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+prime_numbers = list(filter(is_prime, numbers))
+print(prime_numbers)  # Output: [2, 3, 5, 7]
+   
+
+#### **Q21: What happens if a generator function does not contain a `yield` statement?**  
+**A:** It acts as a normal function and does not return an iterator.

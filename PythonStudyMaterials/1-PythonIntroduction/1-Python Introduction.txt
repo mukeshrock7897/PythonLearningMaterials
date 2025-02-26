@@ -1,0 +1,324 @@
+================================================================================================================================================
+									Python
+================================================================================================================================================
+
+Python is High level , interpreted, interactive and object oriented scripting language
+
+	where 
+	
+	Interpreted--processed at runtime not compile before executing th program
+
+	Interactive--Enter in python prompt and interact with interpreter directly to write your program
+
+	Object oriented--python also follow the oops concepts 
+
+	Scripting--python use the interpreter read and execute each line of code one by one at a time , just like script
+
+
+
+
+================================================================================================================================================
+
+								History of Python
+================================================================================================================================================
+
+
+Python was developed by Guido Van Rossum in February 20, 1991 at Centrum Wiskunde & Informatica(CWI) in Netherlands
+
+Python 2.0 was released on 16 october 2000
+
+Python 3.0 was released on 3 december 2008
+
+Python Source code is also available under the GNU General Public License(GPL)
+
+
+================================================================================================================================================
+
+								Python Features
+================================================================================================================================================
+
+1--Easy to Learn
+
+2--Easy to Read
+
+3--Easy to Maintain
+
+4--A Broad Standard Library
+
+5--Portable
+
+6--Databases
+
+7--GUI Programming
+
+
+================================================================================================================================================
+
+								Syntax of Python
+================================================================================================================================================
+
+Python is dynamic language
+
+Specially it don't have any predefined syntax like Java,C,C++
+
+Python Extension is .py , .pyc 
+
+
+Ex--Print the Hello World in Python 
+
+>>>print("Hello World")			#'Hello World'
+
+
+
+================================================================================================================================================
+
+								Python Identifier
+================================================================================================================================================
+
+A Python identifier is a name used to identify a variable,function,class,module or other object
+
+An identifier starts with a letter  A to Z or a to z and underscore(_) , digits(0-9) also followed by underscored with
+
+_1="a"	#Correct
+
+1="a"	#Error
+
+
+Python does not allow punctuation characters such as @,$ and % with identifiers
+
+>>> @u="o"	#SyntaxError: invalid syntax
+
+>>> $u="p"	#SyntaxError: invalid syntax
+
+>>> %g="i"	#SyntaxError: invalid syntax
+
+ 
+Python is Case-Sensitive Language ,where "mukesh" and "MUKESH" are two different identifiers 
+
+Naming Conventions in Python Identifiers--
+			
+			1--Class names start with an uppercase letter,All other identifiers start with a lowercase letter
+
+			Ex--
+			
+			class  ClassName:
+				-------------
+				-------------
+				-------------
+
+			a=10
+			b=20
+
+
+
+			2--Starting an identifier with a single leading underscore indicates that identifier is private
+
+				Ex-
+			
+			_a=10
+			_b=20
+
+
+
+			3--Starting an identifier with two leading underscores indicates that a identifier is strongly private
+
+				Ex-
+
+			__a=10
+			__b=20
+
+
+
+			4--if the identifier also ends with two trailing underscores , the identifiers is a language defined special name
+
+
+				Ex-
+
+			__init__
+
+			__del__
+
+
+
+================================================================================================================================================
+
+								Python Reserved Keywords
+================================================================================================================================================
+
+
+According to Python 3.3 There are 35 Reserved  Keywords in Python
+
+
+
+False		class		finally		is		return
+
+
+None		continue	for		lambda		try
+
+
+True		def		from		nonlocal	while
+
+
+and		del		global		not		with
+
+
+as		elif		if		or		yield
+
+
+
+assert		else		import		pass	       await
+
+
+break		except		in		raise          async
+
+
+
+Note-- You can find the list of keyword in Your Python Prompt
+
+>>> import keyword
+>>> print(keyword.kwlist)
+['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
+
+
+
+
+
+
+=================================================================================================================================================
+
+								Line and Indentation
+================================================================================================================================================
+
+
+for new line press the Enter Key or Use \n
+
+Python does not support the indentation 
+
+>>>a=10			#Correct
+
+>>>	a=10		#Indentation Error
+
+
+================================================================================================================================================
+
+								Multiple Statement in Single Line
+================================================================================================================================================	
+
+Python provides Multiple Statement in Single Line
+
+But you will have to separate by using comma ;
+
+Ex--
+
+>>> a=10;b=20;c=30
+>>> a			#10
+
+>>> b			#20
+
+>>> c			#30
+
+
+
+================================================================================================================================================
+
+								Multiple Assignment
+================================================================================================================================================
+
+>>>a=b=c=10
+
+>>>a		#10
+
+>>>b		#20
+
+>>>c		#30
+
+
+================================================================================================================================================
+
+								Multiple Object to Mutliple Variable
+================================================================================================================================================
+
+>>>name,age,location,mobile="Mukesh",20,"Banglore",9794180378
+
+>>> name		#'Mukesh'
+
+>>> age			#20
+
+>>> location		#'Banglore'
+
+>>> mobile		#9794180378
+
+
+
+
+
+================================================================================================================================================
+
+									Comments
+================================================================================================================================================
+
+
+In Python Hash Symbol # use for comment
+
+Ex--
+
+>>>#This is Commenting line
+
+
+================================================================================================================================================
+
+									Printing the Blank line
+================================================================================================================================================
+
+In ptyhon you can print the blank line by using the Whitespaces only
+
+Ex-
+
+>>> a="                        "
+>>> a					#'                        '
+
+
+
+
+================================================================================================================================================
+
+								Multiple Statement Group as Suites
+================================================================================================================================================
+
+In Python Suites are created by function,class,if,etc 
+
+For creating suites we need to colon :
+
+Ex--
+
+
+def	 add():
+
+	a=10
+	b=20
+	return a+b
+
+
+
+================================================================================================================================================
+									
+								Variable
+================================================================================================================================================
+
+
+Python is Dynamically typed ,which means that you don't have to declare what type each variable is
+
+Variable reserved the memory location to store the value
+
+In Python variables always assigned with the equal sign = 
+
+
+Ex--
+
+>>>a=10
+
+>>>b==20		#True  because behave like a bool(True/False) 
+
+
+================================================================================================================================================
+ 

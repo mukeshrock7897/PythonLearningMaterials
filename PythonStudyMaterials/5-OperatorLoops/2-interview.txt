@@ -1,0 +1,90 @@
+### **Operators**  
+1. **What are the different types of operators in Python?**  
+- Arithmetic, Relational, Logical, Identity, Bitwise, and Shorthand Assignment Operators.  
+
+2. **What is the difference between  /  and  //  in Python?**  
+-  /  performs normal division (returns float),  //  performs floor division (returns integer).  
+
+3. **What does the  is  operator do?**  
+- It checks if two variables refer to the same object in memory.  
+
+4. **What is the output of  10 & 5 ?**  
+-  0  (Bitwise AND of  1010  &  0101 ).  
+
+5. **Explain  a += 1  and  a <<= 1 .**  
+-  a += 1  is shorthand for  a = a + 1 .  
+-  a <<= 1  is shorthand for  a = a << 1  (left shift).  
+
+### **Loops**  
+6. **What are the types of loops in Python?**  
+-  while ,  for , and  nested loops .  
+
+7. **How does a  while  loop work?**  
+- It runs as long as the condition is  True .  
+
+8. **What is the use of the  range()  function?**  
+- It generates a sequence of numbers ( range(start, stop, step) ).  
+
+9. **What will  for i in range(3): print(i)  output?**  
+-  0 1 2   
+
+10. **How does a nested loop work?**  
+- A loop inside another loop, iterating multiple levels.  
+
+### **Break and Continue**  
+11. **What is the use of the  break  statement?**  
+- It exits the loop immediately when encountered.  
+
+12. **What is the use of the  continue  statement?**  
+- It skips the current iteration and continues with the next one.  
+
+13. **What will the following code print?**  
+    
+for i in range(5):
+    if i == 3:
+        break
+    print(i)
+    
+-  0 1 2   
+
+14. **What will the following code print?**  
+    
+for i in range(5):
+    if i == 3:
+        continue
+    print(i)
+    
+-  0 1 2 4   
+
+### **Decision Making**  
+15. **What are the types of decision-making statements in Python?**  
+-  if ,  if-else ,  nested if , and  if-elif ladder .  
+
+16. **How does an  if  statement work?**  
+- Executes a block of code if the condition is  True .  
+
+17. **What is the output of the following?**  
+    
+x = 10
+if x > 15:
+    print("Greater")
+print("End")
+    
+-  End  (since  x > 15  is  False ).  
+
+18. **What is the  if-elif-else  ladder?**  
+- It checks multiple conditions in sequence and executes the first  True  condition.  
+
+19. **What does the following code do?**  
+    
+x = 10
+if x == 10:
+    print("Equal to 10")
+    if x < 20:
+        print("Less than 20")
+    
+- Prints:  
+    
+    Equal to 10
+    Less than 20
+    

@@ -1,0 +1,114 @@
+### **Handling Binary Data**
+#### **Q1: How can you read and write binary files in Python?**  
+**A:** You can read and write binary files using the `rb` (read binary) and `wb` (write binary) modes in Python's `open()` function.  
+**Example:**
+ 
+f1 = open("mukesh.jpg", "rb")
+f2 = open("new.jpg", "wb")
+
+bytes_data = f1.read()
+f2.write(bytes_data)
+
+print("Data available")
+ 
+
+#### **Q2: Why do we need to handle binary files differently from text files?**  
+**A:** Binary files store data in a non-human-readable format (e.g., images, videos, audio). Unlike text files, binary files contain raw bytes, which must be read and written without any automatic encoding or newline conversion.
+
+---
+
+### **Handling CSV Files**
+#### **Q3: How does Python handle CSV files?**  
+**A:** Python provides the `csv` module to read and write CSV files. The `csv.writer()` and `csv.reader()` functions help manage CSV data efficiently.
+
+#### **Q4: What is the purpose of the `newline=''` attribute while working with CSV files?**  
+**A:** If `newline=''` is not used, extra blank lines will be added in the CSV file while writing data. Using `newline=''` prevents this issue.  
+**Example:**
+ 
+with open("emp.csv", "w", newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow(["ENO", "ENAME", "ESAL", "EADDR"])
+ 
+
+#### **Q5: How do you read a CSV file and store its data in a list?**  
+**A:** You can use `csv.reader()` and `list()` to read a CSV file and store its content in a list.  
+**Example:**
+ 
+import csv
+with open("emp.csv", "r") as f:
+    reader = csv.reader(f)
+    data = list(reader)
+ 
+
+---
+
+### **Zipping and Unzipping Files**
+#### **Q6: How do you create a ZIP file in Python?**  
+**A:** You can use the `zipfile.ZipFile` class with the `ZIP_DEFLATED` constant to compress files.  
+**Example:**
+ 
+from zipfile import ZipFile
+f = ZipFile("document.zip", "w", ZIP_DEFLATED)
+f.write("file1.txt")
+f.write("file2.txt")
+f.close()
+print("Zip File Created Successfully")
+ 
+
+#### **Q7: How can you list all files inside a ZIP archive in Python?**  
+**A:** You can use the `namelist()` method of the `ZipFile` class.  
+**Example:**
+ 
+from zipfile import ZipFile
+f = ZipFile("document.zip", "r")
+print(f.namelist())
+ 
+
+---
+
+### **Working with Directories**
+#### **Q8: How can you get the current working directory in Python?**  
+**A:** You can use the `os.getcwd()` function.  
+**Example:**
+ 
+import os
+print(os.getcwd())  # Prints the current working directory
+ 
+
+#### **Q9: How do you create multiple directories at once in Python?**  
+**A:** You can use `os.makedirs()`.  
+**Example:**
+ 
+os.makedirs("dir1/dir2/dir3")
+ 
+
+#### **Q10: How do `os.listdir()` and `os.walk()` differ?**  
+**A:**  
+- `os.listdir()` only returns the files and directories in the given directory.  
+- `os.walk()` recursively traverses all subdirectories and files.
+
+#### **Q11: How can you rename a directory in Python?**  
+**A:** Use `os.rename(old_name, new_name)`.  
+**Example:**
+ 
+os.rename("old_dir", "new_dir")
+ 
+
+---
+
+### **File Information and Metadata**
+#### **Q12: How do you get the size of a file in Python?**  
+**A:** Use `os.stat(filename).st_size`.  
+**Example:**
+ 
+import os
+print(os.stat("file.txt").st_size)  # Outputs file size in bytes
+ 
+
+#### **Q13: How can you convert Unix timestamp to human-readable format in Python?**  
+**A:** Use `datetime.fromtimestamp()`.  
+**Example:**
+ 
+import os
+from datetime import datetime
+print(datetime.fromtimestamp(os.stat("file.txt").st_mtime))

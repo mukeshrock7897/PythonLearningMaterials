@@ -1,0 +1,67 @@
+### **Exception Handling**  
+
+1. **What is an exception in Python?**  
+   - An exception is a runtime error that disrupts normal program execution.  
+
+2. **How do you handle exceptions in Python?**  
+   - Using `try` and `except` blocks.  
+
+3. **What is the purpose of the `else` block in exception handling?**  
+   - It runs if no exceptions occur.  
+
+4. **What is the use of the `finally` block?**  
+   - It executes regardless of an exception occurring or not.  
+
+5. **Can a `try` block have multiple `except` blocks?**  
+   - Yes, to handle different exceptions separately.  
+
+6. **What happens if an exception is not handled?**  
+   - The program terminates abnormally.  
+
+7. **How do you manually raise an exception?**  
+   - Using `raise Exception("Message")`.  
+
+---
+
+### **Modules and Packages**  
+
+8. **What is a module in Python?**  
+   - A file containing Python code with a `.py` extension.  
+
+9. **How do you import a module in Python?**  
+   - Using `import module_name`.  
+
+10. **What is the difference between `import module` and `from module import function`?**  
+   - `import module` imports everything, while `from module import function` imports specific parts.  
+
+11. **What is a package in Python?**  
+   - A collection of modules stored in a directory with an `__init__.py` file.  
+
+12. **How do you import a function from a subpackage?**  
+   - `from package.subpackage.module import function`.  
+
+---
+
+### **Time and Date Module**  
+
+13. **How do you get the current time in Python?**  
+   - Using `time.localtime()` or `time.ctime()`.  
+
+14. **What is the use of `time.sleep(seconds)`?**  
+   - It pauses execution for the specified time.  
+
+15. **How do you convert time to a readable format?**  
+   - Using `time.asctime(time.localtime())`.  
+
+---
+
+### **Calendar Module**  
+
+16. **How do you display a full-year calendar in Python?**  
+   - Using `calendar.calendar(year)`.  
+
+17. **How do you check if a year is a leap year?**  
+   - Using `calendar.isleap(year)`.  
+
+18. **How do you get the first weekday of a month?**  
+   - Using `calendar.monthrange(year, month)`.

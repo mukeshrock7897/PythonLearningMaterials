@@ -1,0 +1,1605 @@
+================================================================================================================================================
+								Data Type in Python
+================================================================================================================================================
+
+
+Every value in python has a data type ,since everything is an object in python
+
+There are mainly five data types in python 
+
+1--Number
+
+2--String
+
+3--List
+
+4--Tuple
+
+5--Dictionary
+
+
+================================================================================================================================================
+							1--Number Data Type
+================================================================================================================================================
+
+Number data type stores numeric values
+
+this is immutable data type, that means we can not change value of variable if once we assigned ,suppose that we are changing value of a 
+
+number data type , then result newly allocated 
+
+a=10	#assigning
+a=20	#changing but memory occupy another location
+
+Basically Under the number data type int(),float(),complex() comes
+
+1-- int()
+
+this convert values into integer data type
+
+Ex--
+
+a=int(10.20)
+
+a		#10
+
+
+
+2--float()
+
+this convert values into float data type
+
+Ex--
+
+a=float(10)
+
+a		#10.0
+
+
+3--complex()
+
+this convert values into complex number (a+bj) form
+
+this require two arguments
+
+Ex--
+
+a=complex(10,20)
+
+a		#10+20j
+
+
+
+4--bool()
+
+this also comes under number data type
+
+this convert value into boolean format
+
+Ex--
+
+a=bool(1)
+
+a	#True
+
+b=bool(0)
+
+b	#False
+
+==============================================================================
+
+Mathematical functions
+
+=======================
+
+
+1--abs(x)
+---------
+
+return absolute positive value of given number
+
+a=abs(-20)	#20
+
+a=abs(-20.89)	#20.89
+
+a=abs(10.63)	#10.63
+
+
+2--round()
+----------
+
+return round up number +ve or -ve both
+
+if number is >.5 then you will get increased value 
+
+if number is <.5 then you will get same value
+
+a=round(10.23)		#10.23
+
+a=round(10.56)		#11
+
+a=round(-10.56)		#-11
+
+
+
+3--ceil()
+---------
+
+return greater or equal to given number
+
+math.ceil(-23.11)	#-23
+
+math.ceil(23.11)	#24
+
+
+4--floor()
+----------
+
+return less than or equal to given number
+
+math.floor(-23.11)	#-24
+
+math.floor(23.11)	#23
+
+
+5--exp()
+--------
+return the exponential value
+
+math.exp(10)		#22026.465794806718
+
+math.exp(-10)		#4.5399929762484854e-05
+
+
+6--fabs()
+----------
+
+return the absolute value of given number
+
+math.fabs(-20)		#20.0
+
+math.fabs(20)		#20.0
+
+
+7--log()
+---------
+
+return the logarithmic value
+
+math.log(20)		#2.995732273553991
+
+8--log2()
+
+return the logarithmic value which base is 2
+
+math.log2(20)		#4.321928094887363
+
+
+9--log10()
+----------
+
+return the logarithmic value which base is 10
+
+
+10--modf()
+-----------
+
+return fractional and integer number in tuple form
+
+
+math.modf(101)		#(0.0, 101.0)
+
+math.modf(-101)		#(-0.0, -101.0)
+
+
+11--pow()
+----------
+
+return power value of given number
+
+it requires two arguments
+
+math.pow(2,3)		#8.0
+
+
+12--sqrt()
+-----------
+
+return the square value of given number
+
+math.sqrt(64)		#8.0
+
+
+================================================================================================================================================
+
+Trigonometric functions
+================================================================================================================================================
+
+sin(x)
+cos(x)
+tan(x)
+asin(x)
+acos(x)
+atan(x)
+
+
+================================================================================================================================================
+
+Random Number functions
+================================================================================================================================================
+
+1--choice()
+----------
+
+return random item from list , tuple , string , number etc
+
+random.choice(range(10))	#4
+
+random.choice((10,20,30))	#30
+
+random.choice([10,20,30])	#20
+
+random.choice("String")		#'t'
+
+
+2--randrange()
+--------------
+
+return randomly item between selected range (start,stop,step)
+
+random.randrange(1,10,1)	#3
+
+if you are using the step 2 then always you will get only and only odd numbers
+
+
+random.randrange(1,100,2)	#35
+
+random.randrange(1,100,2)	#43
+
+
+if you are using step 1 then you can get even and odd both
+
+random.randrange(1,100,1)	#59
+
+random.randrange(1,100,1)	#30
+
+
+3--random()
+------------
+
+return random number between 0 and 1 only
+
+random.random()			#0.11760966826489705
+
+random.random()			#0.3364410005819757
+
+
+4--shuffle
+-----------
+
+return the shuffled item of list
+
+>>> a=[10,20,30]
+
+>>> random.shuffle(a)
+
+>>> a			#[20, 30, 10]
+
+
+5--uniform
+-----------
+
+return random float numbers between given range
+
+random.uniform(5,20)	#7.215147295606944
+
+random.uniform(5,20)	#19.271468811055765
+
+
+
+
+Note--Some Important terms
+
+
+#find the square of given number
+
+2**3		#8
+
+
+#find out cube of given number
+
+8**(1/3)	#2.0
+
+
+
+================================================================================================================================================
+
+								2--String Data type
+================================================================================================================================================
+
+String is group of character
+
+String maybe written in single, double , triple quotations also
+
+String is immutable
+
+
+a='String'
+
+a="String"
+
+a="""String"""
+
+
+Accessing Values in String
+--------------------------
+
+In python to access individual string index or colon :
+
+>>> a="Mukesh"
+
+>>> a[2]	#'k'				By index number
+
+>>> a[0:3]	#'Muk' 				By square bracket and colon :
+
+
+
+Updating the strings
+---------------------
+
+>>> a="Mukesh"
+
+>>> a[0:2]="Amresh"
+Traceback (most recent call last):
+  File "<pyshell#100>", line 1, in <module>
+    a[0:2]="Amresh"
+TypeError: 'str' object does not support item assignment
+
+Because string is immutable , we can not change
+
+
+Escape Character
+-----------------
+
+\s			#space
+
+\n			#newline
+
+\t			#tab
+
+
+
+String Special operator
+------------------------
+
++			#Concatenation
+
+*			#Repetition
+
+[]			#indexing
+
+[:]			#slicing
+
+in			#membership operator
+
+not in 			#membership operator
+
+
+
+
+String Formatting
+------------------
+
+%c			#Character
+
+%s			#String
+
+%i			#signed decimal integer
+
+%d			#decimal integer
+
+%u			#unsigned 
+
+%o			#octal
+
+%x			#hexa
+
+%X			#hexa uppercase
+
+%e			#exponential (lower)
+
+%E			#Exponential (Upper)
+
+%f			#float
+
+
+
+
+Built in functions of String
+-----------------------------
+
+1--capitalize()
+
+Only first character will be capital
+
+
+>>> s="mukesh yadav"
+>>> s.capitalize()		#'Mukesh yadav'
+
+----------------------------------------------------------------------
+
+2--tittle()
+
+convert into title form
+
+>>> s="mukesh yadav"
+>>> s.title()			#'Mukesh Yadav'
+
+-----------------------------------------------------------------------
+
+3--upper()
+
+convert into upper case
+
+>>> s="mukesh yadav"
+>>> s.upper()			#'MUKESH YADAV'
+
+------------------------------------------------------------------------
+
+4--lower()
+
+convert into lower case
+
+
+>>> s="MUKESH YADAV"
+>>> s.lower()			#'mukesh yadav'
+
+------------------------------------------------------------------------
+
+5--isupper()
+
+check that string is upper or not , if upper then return True
+
+>>> s="MUKESH YADAV"
+>>> s.isupper()		#True
+
+-----------------------------------------------------------------------
+
+6--islower()
+
+check that string is lower or not , if upper then return True
+
+>>> s="mukesh yadav"
+>>> s.islower()		#True
+
+-----------------------------------------------------------------------
+
+7--istitle()
+
+check that string is title or not , if upper then return True
+
+
+>>> s='Mukesh Yadav'
+>>> s.istitle()		#True
+
+-----------------------------------------------------------------------
+
+8--isdigit()
+
+check string contain only digit or not
+
+
+>>> s="123"
+>>> s.isdigit()		#True
+
+>>> s="123abc"
+>>> s.isdigit()		#False
+
+-----------------------------------------------------------------------
+
+9--isnumeric()
+
+check string contain only numeric or not
+
+>>> s="123"
+>>> s.isnumeric()	#True
+ 
+>>> s="123abc"
+>>> s.isnumeric()	#False
+
+
+-----------------------------------------------------------------------
+
+10--isdecimal()
+
+check string contain only decimal or not
+
+
+>>> s="123"
+>>> s.isdecimal()	#True
+
+>>> s="123abc"
+>>> s.isdecimal()	#False
+
+
+-----------------------------------------------------------------------
+
+11--isalpha()
+
+check string contain only alphabatic characater or not
+
+>>> s="Mukesh"
+>>> s.isalpha()		#True
+
+>>> s="Mukesh Yadav"
+>>> s.isalpha()		#False
+
+----------------------------------------------------------------------
+
+12--isalnum()
+
+check string contain only alphabatic and numeric both or not
+
+
+>>> s="123abc"
+>>> s.isalnum()		#True
+
+>>> s="123 abc"
+>>> s.isalnum()		#False
+
+---------------------------------------------------------------------
+
+13--find()
+
+return string first index where it found , if not found then return -1
+
+
+>>> a="ram is god"
+>>> a.find("ram")	#0
+
+>>> a="ram is god,wooo"
+>>> a.find("hey")	#-1
+
+-------------------------------------------------------------------
+
+14--rfind()
+
+return string last index where it found , if not found then return -1
+
+
+>>> a="ram is god ,ram is husband of seeta"
+>>> a.rfind("ram")		#12
+
+>>> a="ram is god ,ram is husband of seeta"
+>>> a.rfind("geeta")		#-1
+
+---------------------------------------------------------------------
+
+15--count()
+
+count number of occurance of a particular string
+
+>>> a="ram is god ,ram is husband of seeta"
+>>> a.count("ram")		#2
+
+>>> a="ram is god ,ram is husband of seeta"
+>>> a.count("ohhh")		#0
+
+----------------------------------------------------------------------
+
+16--strip()
+
+strip all legend of string from beginging to ending
+
+>>> a="**ram**"
+>>> a.strip("*")	#'ram'
+
+----------------------------------------------------------------------
+
+17--lstrip()
+
+strip left side legend of string
+
+
+>>> a="***ram***"
+>>> a.lstrip("*")	#'ram***' 
+
+----------------------------------------------------------------------
+
+18--rstrip()
+
+strip right side legend of string
+
+>>> a="***ram***"
+>>> a.rstrip("*")	#'***ram'
+
+---------------------------------------------------------------------
+
+19--zfill()
+
+fill the zero from left side with string
+
+>>> a="ram"
+>>> a.zfill(5)		#'00ram'
+
+---------------------------------------------------------------------
+
+20--max()
+
+tell maximum value of string
+
+>>> a="abcd"
+>>> max(a)		#'d'
+
+----------------------------------------------------------------------
+
+21--min()
+
+
+tell minimum value of string
+
+>>> a="abcd"
+>>> min(a)		#'a'
+
+---------------------------------------------------------------------
+
+22--len()
+
+tell length of string
+
+>>> a="abcd"
+>>> len(a)		#4
+
+---------------------------------------------------------------------
+
+23--endswith()
+
+return True if string ends with specified suffix otherwise False
+
+>>> a="Ram is God"
+>>> a.endswith("God")		#True
+
+>>> a="Ram is God"
+>>> a.endswith("Ram")		#False
+
+---------------------------------------------------------------------
+
+24--startswith()
+
+return True if string starts with specified prefix otherwise False
+
+>>> a="Ram is God"
+>>> a.startswith("Ram")		#True
+
+>>> a="Ram is God"
+>>> a.startswith("God")		#False
+
+----------------------------------------------------------------------
+
+25--split()
+
+split a string and returns in list forms 
+
+>>> a="M U K E S H"
+>>> a.split()			#['M', 'U', 'K', 'E', 'S', 'H']
+
+-----------------------------------------------------------------------
+
+
+26--splitlines()
+
+returns a list with all lines 
+
+bascially it will check \n,\t,\s
+
+>>> a="Ram \nis \na \nGod"
+>>> a.splitlines()		#['Ram ', 'is ', 'a ', 'God']
+
+-------------------------------------------------------------------------
+
+27--expandtabs()
+
+this expands the tabs where find \t
+
+>>> a="Ram \tis \ta \tGod"
+>>> a.expandtabs()		#'Ram     is      a       God'
+
+-------------------------------------------------------------------------
+
+28--index()
+
+return the index of string ,if not found return error
+
+>>> a="Ram is God"
+>>> a.index("is")	#4
+
+>>> a.index("Shyam")
+Traceback (most recent call last):
+  File "<pyshell#280>", line 1, in <module>
+    a.index("Shyam")
+ValueError: substring not found
+
+ 
+>>> a.index("is",100)
+Traceback (most recent call last):
+  File "<pyshell#282>", line 1, in <module>
+    a.index("is",100)
+ValueError: substring not found
+
+
+----------------------------------------------------------------------------
+
+29--maketrans()
+
+return translation table in ASCII Formats
+
+its type is dict
+
+>>> a="MUKESH"
+>>> a.maketrans("abc","123")		#{97: 49, 98: 50, 99: 51}
+
+---------------------------------------------------------------------------
+
+30--translate()
+
+this translate the string according to given pattern
+
+>>> a="mukesh"
+>>> a.translate(a.maketrans("aeiou","12345"))		#'m5k2sh'
+
+
+--------------------------------------------------------------------------
+
+31--replace()
+
+replace old string to new string
+
+>>> a="mukesh"
+
+>>> a.replace("mukesh","amresh")	#'amresh'
+
+
+---------------------------------------------------------------------------
+
+32--isspace()
+
+return True if String Have whitespace or False
+
+
+>>> a="       "
+>>> a.isspace()		#True
+
+>>> a="  Ram is God"
+>>> a.isspace()		#False
+
+----------------------------------------------------------------------------
+
+33--decode()  endcode()
+
+
+================================================================================================================================================
+
+								3- List data type
+================================================================================================================================================'
+
+
+list is collection of homogineous(similer) object
+
+a=[10,20,30]
+
+to declare a list we use square bracket []
+
+list is mutable it means insertion,deletion,updation operation may perform
+
+inside the square bracket we use the comma for seprate the elements
+
+list allow duplicate value
+
+a=[10,20,10,30]
+
+list can store type data 
+
+l=[10,20,30]		#integer
+
+l=["a","b","c"]		#string
+
+l=[10.20,30.26,63.25]	#float
+
+l=[10,20.62,"a"]	#Mixed
+
+list allow positive and negative indexing both
+
+0    1   2
+----------
+10  20  30
+----------
+-3  -2  -1
+
+
+
+
+Acessing element from list
+===========================
+
+there are two ways
+
+1--index number
+---------------
+
+l=[10,20,30]
+
+print(l[0])	#10
+print(l[-1])	#30
+
+
+2--Slice Operator
+-----------------
+
+l=["math","english","physics"]
+
+print(l[0:3])		#'mat'
+
+
+
+
+
+Updating list item
+===================
+
+l=[10,200,300]
+
+l[0]=100
+
+print(l)		#[100,200,300]
+
+
+
+deleting list
+==============
+
+l=[10,20,30]
+
+del l[10]	#single item only
+
+del l		#Whole list
+
+
+
+Basic Operation
+================
+
+1--addition
+------------
+
+
+l1=[10,20,30]	l2=[40,50,60]
+
+l3=l1+l2	#[10,20,30,40,50,60]	This is new list
+
+Note-- We can add only list + list , not list +int
+
+l1=[10,20,30]+40	#Error
+
+
+
+2--multiplication
+-----------------
+
+l=[10,20]
+
+l*2	#[10,20,10,20]
+
+#you can not multiply list to list
+
+l1=[10,20]	l2=[30,40]
+
+l1*l2		#Error
+
+
+Some Posibities Given Below
+---------------------------
+
+print(l*40)		#Valid
+
+print(l*l2[0])		#Valid
+
+print(l-10)		#Error
+
+print(l/10)		#Error
+
+print(l1-l2)		#Error
+
+print(l1+l2*20)		#Valid
+
+print(l1*10+l2)		#Valid
+
+
+Working with open function
+---------------------------
+
+l=[10,20,30,40]
+
+sum(l)
+
+len(l)
+
+max(l)
+
+min(l)
+
+id(l)
+
+
+
+
+Built in function
+------------------
+
+1-- append()
+
+add an element to end of list
+
+l=[10,20,30]
+
+l2=l.append(40)
+
+print(l2)	#[10,20,30,40]
+
+
+
+2-- extend()
+
+add all element of list to another list
+
+l1=[10,20,30]
+
+l2=[40,50,60]
+
+l3=l1.extend(l2)
+
+
+
+3-- count()
+
+count the how many times a element occured in list
+
+l1=[10,20,10,30]
+
+l1.count(10)		#2
+
+
+4--insert()
+
+insert an item at defined index position
+
+l=[10,20,30]
+
+l2=l.insert(1,100)
+
+print(l2)	#[10,100,20,30]
+
+
+
+5--index()
+
+return the index of 1st matched element
+
+l=[10,20,30]
+
+l.index(10)	#0
+
+
+6--clear()
+
+
+remove all items from a list
+
+l=[100,200,300]
+
+l2=l.clear()
+
+print(l2)		#[]
+
+
+7--remove()
+
+remove selected item from list
+
+l=[10,20,30]
+
+l2=l.remove(10)
+
+print(l2)		#[20,30]
+
+
+8--pop()
+
+remove and return element at given number
+
+
+l=[10,20,30]
+
+l.pop()		#40
+
+l.pop(0)	#10
+
+
+9--sort()
+
+sort the list in ascending order
+
+l=[40,20,30]
+
+l.sort()		#[20,30,40]
+
+
+10--reverse()
+
+reverse the order of item in list
+
+l=[10,20,30]
+
+l.reverse()		#[30,20,10]
+
+
+11--copy()
+
+return duplicate copy of list
+
+>>> l=[10,20,30]
+>>> l2=l.copy()
+>>> l2			#[10, 20, 30]
+
+
+
+================================================================================================================================================
+
+							4--Tuple data type
+================================================================================================================================================
+
+
+tuple is collection of heterogenous objects
+
+tuple is defined by parenthesis ()
+
+tuple is immutable 
+
+tuple does not allow the duplicate value ,if availble then it tells about different types message
+
+we can declare an empty tuple
+t=()
+
+to access element in tuple we use index
+
+tuple allow positive and negative index both 
+
+
+0    1   2
+----------
+10  20  30
+----------
+-3  -2  -1
+
+
+tuple may be also declared without parenthesis also
+
+a="a","b","c"
+
+tuple can have single value with comma 
+
+t=(10,)
+
+we can write tuple inside tuple also
+
+a=(10,20,(30,40),50)
+
+
+
+
+
+Acessing element from tuple
+=============================
+
+there are two methods 
+
+1--index number
+----------------
+
+t=(10,20,30)
+
+t[0]		#10
+
+
+2--slice operator
+-----------------
+
+t=(10,20,30)
+
+t[0:2]		#10,20
+
+
+
+
+
+Updating tuple
+==============
+
+only and only we can add two tuple 
+
+t1=(10,20,30)
+
+t2=(40,50,60)
+
+t3=t1+t2		#(10,20,30,40,50,60)
+
+
+t1[0]=100		#Error
+
+
+
+
+Deleting tuple elements
+=========================
+
+
+in tuple individual element deleting is impossible 
+
+in this ways we use del keyword for delete all tuple
+
+del t1
+
+
+
+
+
+Basic tuple operation
+======================
+
+1--addition
+------------
+
+t1=(10,20,30)
+
+t2=(40,50,60)
+
+t3=t1+t2		#(10,20,30,40,50,60)
+
+we can't add tuple and int togather
+
+t=(10,20,30)+40			#Error
+
+
+we can perform opeartion withing tuple
+
+t=(10,20+30,40,50)
+
+
+
+2--multiplication
+-----------------
+
+t=(10,20)
+
+t*2		#(10,20,10,20)
+
+
+we can not multiply two tuple togather
+
+t1=(10,20,30)
+
+t2=(40,50,60)
+
+t1*t2			#Error
+
+
+
+
+Working with open functions
+============================
+
+
+l=(10,20,30,40)
+
+sum(l)
+
+len(l)
+
+max(l)
+
+min(l)
+
+id(l)
+
+
+
+
+Built in functions
+====================
+
+1--sorted()
+
+sort the given tuple
+
+t=(20,30,10,40)
+
+sorted(t)		#[10,20,30,40]
+
+
+2--all()
+
+this function return True if bool is True for all x iterable 
+
+t=(10,20,30)
+
+t.all()			#True
+
+
+t=(0,10,20)
+
+t.all()			#False
+
+
+
+3--count()
+
+count the element that how many times occured in a tuple
+
+t=(10,20,30,10)
+
+t.count(10)		#2
+
+
+4--index()
+
+this return the first index of element in tuple
+
+t=(10,20,30)
+
+t.index(10)		#0
+
+
+t=(10,20,30,10)
+
+t.index(10)		#0
+
+
+
+================================================================================================================================================
+
+								5--Dictionary data type
+================================================================================================================================================
+
+dictionary is collection of pairs
+
+every  pair contains key and value
+
+key must be unique
+
+value can be anything like list,tuple,set,string
+
+every pair must be seprated by comma 
+
+to declare dictionary we use {}
+
+{key:value,key:value.....}
+
+to access values from dictionary we use key
+
+we can define empty dictionary 
+
+
+Working with open function
+============================
+
+d={"a":10,"b":20}
+
+max(d)
+
+min(d)
+
+len(d)
+
+id(d)
+
+
+
+
+working with built in functions
+=================================
+
+
+1--keys()
+
+return all keys 
+
+>>> d={"a":10,"b":20}
+>>> d.keys()		#dict_keys(['a', 'b'])
+
+
+2--values()
+
+return all values
+
+>>> d={"a":10,"b":20}
+>>> d.values()		#dict_values([10, 20])
+
+
+3--items()
+
+return a new view of dictionary items (key and values)
+
+
+>> d={"a":10,"b":20}
+>>> d.items()		#dict_items([('a', 10), ('b', 20)])
+
+
+
+4--clear()
+
+clear all items from dictionary
+
+>>> d={"a":10,"b":20}
+>>> d.clear()		#{}
+
+
+5--get(key)
+
+return tha value of key , if key does not exist return None
+
+>>> d={"a":10,"b":20}
+>>> d.get("a")		#10
+
+>>> print(d.get("c"))	#None
+
+
+6--pop(key)
+
+remove the items of given key and return its value , if key not found return Error
+
+>>> d={"a":10,"b":20}
+>>> d.pop("a")		#10
+
+>>> d.pop("c")
+Traceback (most recent call last):
+  File "<pyshell#371>", line 1, in <module>
+    d.pop("c")
+KeyError: 'c'
+
+
+
+7--popietm()
+
+remove and return an orbitary item(key and value) ,if dictionary is empty then returns error
+
+>>> d={"a":10,"b":20}
+>>> d.popitem()		#('b', 20) 
+
+
+
+8--setdefault()
+
+if key is within dictionary return its value, if not insert the given key with assigned value calld None
+
+>>> d={"a":10,"b":20}
+>>> d.setdefault("c",None)
+>>> d
+{'a': 10, 'b': 20, 'c': None}
+
+
+
+
+
+
+There are some special  case in dictionary
+==========================================
+
+1--key as number
+
+d={1:10,2:20}			#values as number
+
+d={1:"a",2:"b"}			#values as string
+
+d={1:(10,20),2:(10,20)}		#values as tuple
+
+d={1:[10,20],2:[10,20]}		#values as list
+
+d={1:{10,20},2:{10,20}}		#values as set
+
+
+
+2--key as string
+
+
+d={"a":1,"b":2}			#values as number
+
+d={"a":"A","b":"B"}		#values as string
+
+d={"a":(10,20),"b":(10,20)}	#values as tuple
+
+d={"a":[10,20],"b":[10,20]}	#values as list
+
+d={"a":{10,20},"b":{10,20}}	#values as set
+
+
+
+3--key as tuple
+
+
+d={(10,20):10,(10,20):20}		#values as number
+
+d={(10,20):"a",(10,20):"b"}		#values as string
+
+d={(10,20):(10,20,),(10,20):(10,20)}	#values as tuple
+
+d={(10,20):[10,20],(10,20):[10,20]}	#values as list
+
+d={(10,20):{10,20},(10,20):{10,20}}	#values as set
+
+
+
+4--key as list
+
+d={[10,20]:10,[10,20]:20}		#values as number	Error
+
+d={[10,20]:"a",[10,20]:"b"}		#values as string	Error
+
+d={[10,20]:(10,20),[10,20]:(10,20)}	#values as tuple	Error
+
+d={[10,20]:[10,20],[10,20]:[10,20]}	#values as list		Error
+
+d={[10,20]:{10,20},[10,20]:{10,20}}	#values as set		Error
+
+Note -In above example we knew that we can not use list as key in dictioanry
+
+
+5--key as set
+
+d={{10,20}:10,{10,20}:20}			#values as number	#Error
+
+d={{10,20}:"a",{10,20}:"b"}			#values as string	#Error
+
+d={{10,20}:(10,20),{10,20}:(10,20)}		#values as tuple 	#Error
+
+d={{10,20}:[10,20],{10,20}:[10,20]}		#values as list		#Error
+
+d={{10,20}:{10,20},{10,20}:{10,20}}		#valuse as set		#Error
+
+Note - In above exaple we knew that we can not use set as key in dictionary
+
+
+===============================================================================================================================================
+
+							Set in Python
+===============================================================================================================================================
+
+
+set is collection of multiple objects
+
+set is an unordered collection of objects
+
+to declare a set {} use
+
+set does not allow duplicate values
+
+set is immutable 
+
+we can not declare empty set using {}
+
+we can not access set element using index because set is unordered collection
+
+
+
+
+Built in set functions
+======================
+
+
+1--add()
+
+add element to set
+
+>>> a={10,20,30}
+>>> a.add(40)
+>>> a
+{40, 10, 20, 30}
+
+
+
+
+2--clear()
+
+remove all element from set
+
+>>> a={10,20,30}
+>>> a.clear()
+>>> a
+set()
+
+
+
+3--copy()
+
+return a duplicate copy of set
+
+>>> a={10,20,30}
+>>> b=a.copy()
+>>> b
+{10, 20, 30}
+
+
+4--difference()
+
+return difference between two sets
+
+>>> a={10,20,30}
+>>> b={30,40,50}
+>>> a.difference(b)
+{10, 20}
+
+
+5--intersection()
+
+return intersection between two sets
+
+>>> a={10,20,30}
+>>> 
+>>> b={30,40,50}
+>>> a.intersection(b)
+{30}
+
+
+
+6--union()
+
+return union between two sets
+
+
+>>> a={10,20,30}
+>>> b={30,40,50}
+>>> a.union(b)
+{50, 20, 40, 10, 30}
+
+
+
+7--update()
+
+add to set into one set
+
+>>> a={10,20,30}
+>>> b={30,40,50}
+>>> a.update(b)
+>>> a
+{50, 20, 40, 10, 30}
+
+
+8--pop()
+
+remove and return set element ,if set is empty returns Error
+
+>>> a={10,20,30}
+>>> a.pop()
+10
+
+>>> a={}
+>>> a.pop()
+Traceback (most recent call last):
+  File "<pyshell#417>", line 1, in <module>
+    a.pop()
+TypeError: pop expected at least 1 arguments, got 0
+
+
+
+9--remove()
+
+remove an element from set , if element is not member of set returns Error
+
+
+>>> a={10,20,30}
+>>> a.remove(20)
+>>> a
+{10, 30}
+>>> a.remove(40)
+Traceback (most recent call last):
+  File "<pyshell#421>", line 1, in <module>
+    a.remove(40)
+KeyError: 40
