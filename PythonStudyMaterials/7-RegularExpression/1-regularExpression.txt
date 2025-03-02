@@ -280,7 +280,7 @@ for match in matcher:
 
 -----------------------Some Import Fundamental find Out Regular Expression--------------------------------
 
-^-----------------------------Strating
+^-----------------------------Starting
 
 $----------------------------Ending
 
@@ -300,11 +300,11 @@ $----------------------------Ending
 
 \D---------------------Not Match digit
 
-\A---------------------Match begining of String
+\A---------------------Match beginning of String
 
 \z---------------------Match ending of String
 
-\b--------------------Match Boundries 
+\b--------------------Match Boundaries 
 
 \n--------------------Match Newline
 
@@ -317,7 +317,7 @@ import re
 
 
 1.match()---
-	Match  function is help to match at begining of string
+	Match  function is help to match at beginning of string
 
 	re.match(pattern,string,flag)
 
@@ -367,9 +367,9 @@ Ex-------
 
 2-fullmatch()
 
-	 complete string should be  matched according to  givern pattern 
+	 complete string should be  matched according to  given pattern 
 
-	if complete string mathed then this function returns Match objects otherwise return None
+	if complete string matched then this function returns Match objects otherwise return None
 
 
 	re.fullmatch("ab","ababab")
@@ -387,7 +387,7 @@ it replace string with given string
 
 and returns string
 
-sub(regex,replacement,targetstring)
+sub(regex,replacement,target string)
 
 ===============
 
